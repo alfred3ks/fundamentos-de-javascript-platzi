@@ -9,5 +9,6 @@
 > - El alcance de las funciones en JS.
 > - Objetos en JS
 > - Desestructurar objetos
+> - Pasar parametros a una funcion como referencia o como valor
 
 ### Alfredo Sánchez - @alfred3ks - 2020
