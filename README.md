@@ -20,5 +20,6 @@
 > - Condicional multiple switch.
 > - Introducción a los arrays.
 > - Filtrar un array. Metodo filter().
+> - Transformar un array. Metodo map().
 
 ### Alfredo Sánchez - @alfred3ks - 2020
