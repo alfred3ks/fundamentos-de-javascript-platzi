@@ -19,5 +19,6 @@
 > - Estructura repetitiva do while.
 > - Condicional multiple switch.
 > - Introducción a los arrays.
+> - Filtrar un array. Metodo filter().
 
 ### Alfredo Sánchez - @alfred3ks - 2020
