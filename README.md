@@ -22,6 +22,7 @@
 > - Filtrar un array. Metodo filter().
 > - Transformar un array. Metodo map().
 > - Reducir un array. Metodo reduce().
-> - Objetos en Javascript. Las clases.
+> - Prototype en JavaScript, las clases.
+> - Modificar un prototype.
 
 ### Alfredo Sánchez - @alfred3ks - 2020
