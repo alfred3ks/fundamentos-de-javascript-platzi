@@ -15,5 +15,6 @@
 > - Funciones que retornan valores.
 > - Arrow function.
 > - Estructura repetitiva ciclo for.
+> - Estructura repetitiva while.
 
 ### Alfredo Sánchez - @alfred3ks - 2020
