@@ -18,5 +18,6 @@
 > - Estructura repetitiva while.
 > - Estructura repetitiva do while.
 > - Condicional multiple switch.
+> - Introducción a los arrays.
 
 ### Alfredo Sánchez - @alfred3ks - 2020
