@@ -1,17 +1,21 @@
-// Condicionales en JS. Estructuras de control.
-
-// Las estructuras de control deciden si un codigo se ejecuta o no.
+// Funciones que retornan valores
 
 let sacha = {
     nombre: 'Sacha',
     apellido: 'Lifszyc',
-    edad: 16,
+    edad: 28,
     ingeniero: false,
     cocinero: false,
     cantante: false,
     dj: false,
     guitarrista: false,
     drone: true
+}
+
+let juan = {
+    nombre: 'Juan',
+    apellido: 'Gomez',
+    edad: 13
 }
 
 // Definimos una funcion que nos dice que profesion tiene una persona
@@ -45,8 +49,17 @@ imprimirProfesiones(sacha);
 
 // Reto: escribir la funcion imprimirSiEsMayorDeEdad().
 
+// Aqui creamos la logica de la mayoria de edad, devuelve true o false en funcion de la condicion del objeto
+
+const MAYORIA_DE_EDAD = 18;
+// ojo es comunmente las constantes declararlas asi en mayusculas y separadas por guiones bajos.
+
+function esMayorDeEdad(persona){
+    return persona.edad >= MAYORIA_DE_EDAD;
+}
+
 function imprimirSiEsMayorDeEdad(persona){
-    if(persona.edad >= 18){
+    if(esMayorDeEdad(persona)){
         console.log(`${persona.nombre} es mayor de edad.`);
     } else {
         console.log(`${persona.nombre} es menor de edad.`);
@@ -54,7 +67,4 @@ function imprimirSiEsMayorDeEdad(persona){
 }
 
 imprimirSiEsMayorDeEdad(sacha);
-
-
-
-
+imprimirSiEsMayorDeEdad(juan);

@@ -12,5 +12,6 @@
 > - Pasar parametros a una funcion como referencia o como valor.
 > - Comparaciones en JS.
 > - Condicionales.
+> - Funciones que retornan valores.
 
 ### Alfredo Sánchez - @alfred3ks - 2020
