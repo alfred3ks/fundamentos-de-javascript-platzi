@@ -24,5 +24,6 @@
 > - Reducir un array. Metodo reduce().
 > - Prototype en JavaScript, las clases.
 > - Modificar un prototype.
+> - El contexto de las funciones, quien es this.
 
 ### Alfredo Sánchez - @alfred3ks - 2020
