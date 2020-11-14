@@ -21,6 +21,7 @@
 > - Introducción a los arrays.
 > - Filtrar un array. Metodo filter().
 > - Transformar un array. Metodo map().
-> - Reducir un array. Metodo reduce():
+> - Reducir un array. Metodo reduce().
+> - Objetos en Javascript. Las clases.
 
 ### Alfredo Sánchez - @alfred3ks - 2020
