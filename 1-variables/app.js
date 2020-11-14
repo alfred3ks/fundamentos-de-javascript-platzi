@@ -1,3 +1,9 @@
+/* En este curso utilizaremos la consola de Google Chrome y el editor de texto Atom. También, crearemos una carpeta llamada fundamentos_js.
+
+Para crear un archivo independiente del html utiliza la etiqueta
+
+*/
+
 // Imprimir en la consola
 console.log('Hola mundo JS!!!');
 

@@ -1,3 +1,17 @@
+/*
+En esta clase aprenderemos variables de tipo números y las operaciones más comunes en este tipo de variables.
+
+En esta clase veremos operadores matemáticos como:
+
+suma ( + )
+resta ( - )
+multiplicación (*)
+división (/)
+Recerda que en operaciones con decimales debemos realizar operaciones adicionales para conseguir un resultado preciso. Ej. var total = ( precioDeVino * 100 * 3) / 100
+
+Para redondear una operación se utiliza la función: Math.round
+*/
+
 // Números en JS y las operaciones mas comunes.
 // Supongamos que tenemos una variable que tiene un numero
 

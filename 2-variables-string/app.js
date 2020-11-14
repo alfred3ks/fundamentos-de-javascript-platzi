@@ -1,3 +1,23 @@
+/*
+Los strings son cadenas de texto. Para indicar que estamos usando una cadena de texto debemos de colocar las comillas simples.
+
+En este curso utilizaremos los métodos:
+
+    toUpperCase, que sirve para transformar un String a mayúsculas.
+
+    toLowerCase, que sirve para transformar el string a minúsculas.
+
+También usaremos el atributo:
+
+    length, que nos indica la cantidad de caractéres que tiene un string.
+
+Para concatenar dos strings se utiliza el símbolo (+)
+var nombreCompleto = nombre + ’ ’ + apellido
+
+Desafío: Encuentra la última letra de su nombre
+
+*/
+
 // Variables string, metodos y atributos mas usados.
 // OJO los metodos los invocamos .metodo(),
 // y los atributos no llevan parentesis. .atributo

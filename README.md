@@ -13,5 +13,6 @@
 > - Comparaciones en JS.
 > - Condicionales.
 > - Funciones que retornan valores.
+> - Arrow function.
 
 ### Alfredo Sánchez - @alfred3ks - 2020

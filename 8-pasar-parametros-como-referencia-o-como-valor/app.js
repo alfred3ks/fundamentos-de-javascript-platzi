@@ -1,4 +1,8 @@
-// Veamos como pasar valores a nuestras funciones como referencia o como valor
+/*
+Javascript se comporta de manera distinta cuando le pasamos un objeto como parámetro.
+
+Cuando los objetos se pasan como una referencia, estos se modifican fuera de la función. Para solucionar esto se puede crear un objeto diferente. Esto lo podemos hacer colocando tres puntos antes del nombre. Ej …persona.
+*/
 
 // Creamos nuestros objetos.
 

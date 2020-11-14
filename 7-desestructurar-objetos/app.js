@@ -1,4 +1,9 @@
-// Desestructurar objetos, forma como accedemos a los atributos de lo cada objeto.
+/*
+En esta clase aprenderemos otra forma de acceder a los atributos de los objetos que es la desestructurización de los mismos.
+Para no duplicar las variables introducir el nombre de la variable como parámetro de la segunda variable. Ej var{nombre} = persona
+
+Reto: resolver la función que está comentada al final del ejercicio.
+*/
 
 // Creamos nuestros objetos.
 
