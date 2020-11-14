@@ -14,5 +14,6 @@
 > - Condicionales.
 > - Funciones que retornan valores.
 > - Arrow function.
+> - Estructura repetitiva ciclo for.
 
 ### Alfredo Sánchez - @alfred3ks - 2020
