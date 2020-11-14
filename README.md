@@ -16,5 +16,6 @@
 > - Arrow function.
 > - Estructura repetitiva ciclo for.
 > - Estructura repetitiva while.
+> - Estructura repetitiva do while.
 
 ### Alfredo Sánchez - @alfred3ks - 2020
