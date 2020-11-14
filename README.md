@@ -17,5 +17,6 @@
 > - Estructura repetitiva ciclo for.
 > - Estructura repetitiva while.
 > - Estructura repetitiva do while.
+> - Condicional multiple switch.
 
 ### Alfredo Sánchez - @alfred3ks - 2020
