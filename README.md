@@ -31,5 +31,6 @@
 > - Como funciona el asincronismo en Javascript.
 > - Como funciona el tiempo en Javascript.
 > - Callbacks.
+> - Haciendo multiples requests.
 
 ### Alfredo Sánchez - @alfred3ks - 2020
