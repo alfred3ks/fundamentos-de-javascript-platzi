@@ -27,5 +27,6 @@
 > - El contexto de las funciones, quien es this.
 > - La verdad oculta sobre las clases en JavaScript.
 > - Clases en JavaScript.
+> - Funciones como parametro.
 
 ### Alfredo Sánchez - @alfred3ks - 2020
