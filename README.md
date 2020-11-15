@@ -36,5 +36,6 @@
 > - Manejo de los errores con callback.
 > - Promesas.
 > - Promesas encadenadas en serie, pedir varios personajes a la API.
+> - Promesas encadenadas en paralelo, pedir varios personajes a la API.
 
 ### Alfredo Sánchez - @alfred3ks - 2020
