@@ -35,5 +35,6 @@
 > - Manejando el orden y el asincronismo en JS. Callback Hell.
 > - Manejo de los errores con callback.
 > - Promesas.
+> - Promesas encadenadas en serie, pedir varios personajes a la API.
 
 ### Alfredo Sánchez - @alfred3ks - 2020
