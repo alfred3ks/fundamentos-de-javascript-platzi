@@ -38,5 +38,6 @@
 > - Promesas encadenadas en serie, pedir varios personajes a la API.
 > - Promesas encadenadas en paralelo, pedir varios personajes a la API.
 > - Async-await: Lo ultimo en sincronismo.
+> - Juego Simón dice.
 
 ### Alfredo Sánchez - @alfred3ks - 2020
