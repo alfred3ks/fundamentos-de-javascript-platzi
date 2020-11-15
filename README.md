@@ -34,5 +34,6 @@
 > - Haciendo multiples requests.
 > - Manejando el orden y el asincronismo en JS. Callback Hell.
 > - Manejo de los errores con callback.
+> - Promesas.
 
 ### Alfredo Sánchez - @alfred3ks - 2020
