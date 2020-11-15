@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asincronismo en JS</title>
+</head>
+<body>
+
+    <h1>Cómo funciona el asincronismo en JavaScript</h1>
+    <p>JavaScript sólo puede hacer una cosa a la vez, sin embargo; es capaz de delegar la ejecución de ciertas funciones a
+    otros procesos. Este modelo de concurrencia se llama EventLoop.</p>
+    <p>JavaScript delega en el navegador ciertas tareas y les asocia funciones que deberán ser ejecutadas al ser completadas.
+    Estas funciones se llaman callbacks, y una vez que el navegador ha regresado con la respuesta, el callback asociado pasa
+    a la cola de tareas para ser ejecutado una vez que JavaScript haya terminado todas las instrucciones que están en la
+    pila de ejecución.</p>
+    <p>Si se acumulan funciones en la cola de tareas y JavaScript se encuentra ejecutando procesos muy pesados, el EventLoop
+    quedará bloqueado y esas funciones pudieran tardar demasiado en ejecutarse.</p>
+    <p>Para mas informacion ver el video:</p>
+    <a href="https://www.youtube.com/watch?v=bWvnWhVCHAc" target="_blank">Como funciona el asincronismo de JS.</a>
+
+    <h2>NO VOY A BLOQUEAR EL EVENT LOOP.</h2>
+
+</body>
+<script type="text/javascript" src="./app.js"></script>
+</html>

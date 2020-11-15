@@ -28,5 +28,6 @@
 > - La verdad oculta sobre las clases en JavaScript.
 > - Clases en JavaScript.
 > - Funciones como parametro.
+> - Como funciona el asincronismo en Javascript.
 
 ### Alfredo Sánchez - @alfred3ks - 2020
