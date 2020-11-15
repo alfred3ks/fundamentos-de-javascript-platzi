@@ -39,5 +39,6 @@
 > - Promesas encadenadas en paralelo, pedir varios personajes a la API.
 > - Async-await: Lo ultimo en sincronismo.
 > - Juego Simón dice.
+> - Generando una secuencia de números.
 
 ### Alfredo Sánchez - @alfred3ks - 2020
