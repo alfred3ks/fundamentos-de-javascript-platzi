@@ -32,5 +32,6 @@
 > - Como funciona el tiempo en Javascript.
 > - Callbacks.
 > - Haciendo multiples requests.
+> - Manejando el orden y el asincronismo en JS. Callback Hell.
 
 ### Alfredo Sánchez - @alfred3ks - 2020
