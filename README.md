@@ -29,5 +29,6 @@
 > - Clases en JavaScript.
 > - Funciones como parametro.
 > - Como funciona el asincronismo en Javascript.
+> - Como funciona el tiempo en Javascript.
 
 ### Alfredo Sánchez - @alfred3ks - 2020
