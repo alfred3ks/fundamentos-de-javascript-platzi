@@ -40,5 +40,6 @@
 > - Async-await: Lo ultimo en sincronismo.
 > - Juego Simón dice.
 > - Generando una secuencia de números.
+> - Iluminando la secuencia de colores.
 
 ### Alfredo Sánchez - @alfred3ks - 2020
