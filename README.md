@@ -47,6 +47,7 @@
 > - Diferencias entre var, let, const.
 > - Variable tipo Date.
 > - Funciones recursivas.
+> - Memorizando: ahorrando cómputo.
 
 
 ### Alfredo Sánchez - @alfred3ks - 2020
