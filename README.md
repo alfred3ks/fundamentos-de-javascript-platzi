@@ -51,6 +51,7 @@
 > - Entendiendo los closures.
 > - Estructura de datos inmutables.
 > - Cambiando el contexto al llamar a una funcion.
+> - cuando hace falta poner ; al final de linea
 
 
 ### Alfredo Sánchez - @alfred3ks - 2020
