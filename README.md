@@ -49,6 +49,7 @@
 > - Funciones recursivas.
 > - Memorizando: ahorrando cómputo.
 > - Entendiendo los closures.
+> - Estructura de datos inmutables.
 
 
 ### Alfredo Sánchez - @alfred3ks - 2020
