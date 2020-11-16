@@ -46,6 +46,7 @@
 > - Agregando los estados finales al juego.
 > - Diferencias entre var, let, const.
 > - Variable tipo Date.
+> - Funciones recursivas.
 
 
 ### Alfredo Sánchez - @alfred3ks - 2020
