@@ -42,6 +42,8 @@
 > - Generando una secuencia de números.
 > - Iluminando la secuencia de colores.
 > - Obtener el input del usuario.
-> Agregando la verificación del color elegido.
+> - Agregando la verificación del color elegido.
+> - Agregando los estados finales al juego.
+
 
 ### Alfredo Sánchez - @alfred3ks - 2020
