@@ -50,6 +50,7 @@
 > - Memorizando: ahorrando cómputo.
 > - Entendiendo los closures.
 > - Estructura de datos inmutables.
+> - Cambiando el contexto al llamar a una funcion.
 
 
 ### Alfredo Sánchez - @alfred3ks - 2020
