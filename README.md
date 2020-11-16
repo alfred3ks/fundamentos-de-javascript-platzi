@@ -42,5 +42,6 @@
 > - Generando una secuencia de números.
 > - Iluminando la secuencia de colores.
 > - Obtener el input del usuario.
+> Agregando la verificación del color elegido.
 
 ### Alfredo Sánchez - @alfred3ks - 2020
