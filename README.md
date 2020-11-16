@@ -41,5 +41,6 @@
 > - Juego Simón dice.
 > - Generando una secuencia de números.
 > - Iluminando la secuencia de colores.
+> - Obtener el input del usuario.
 
 ### Alfredo Sánchez - @alfred3ks - 2020
