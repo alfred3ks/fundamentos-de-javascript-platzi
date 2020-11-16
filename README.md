@@ -48,6 +48,7 @@
 > - Variable tipo Date.
 > - Funciones recursivas.
 > - Memorizando: ahorrando cómputo.
+> - Entendiendo los closures.
 
 
 ### Alfredo Sánchez - @alfred3ks - 2020
