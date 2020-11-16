@@ -45,6 +45,7 @@
 > - Agregando la verificación del color elegido.
 > - Agregando los estados finales al juego.
 > - Diferencias entre var, let, const.
+> - Variable tipo Date.
 
 
 ### Alfredo Sánchez - @alfred3ks - 2020
