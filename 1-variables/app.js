@@ -20,7 +20,7 @@ var apellido = 'Sánchez';
 
 console.log('Hola, ' + nombre + '.'); //Usando el operador concatenacion (+)
 
-console.log(`Hola, ${nombre}.`); // Usando comillas invertidas.
+console.log(`Hola, ${nombre}.`); // Usando comillas invertidas. O llamadas backticks.
 
 console.log(`Hola, ${nombre} ${apellido}.`)
 
@@ -32,7 +32,7 @@ var edad = 45;
 edad = '45 años'
 console.log(`Tengo ${edad} años`)
 
-// La variable edad primero comenzo siendo un nemero pero luego se le asigno un string y JS no se que queja nada.
+// La variable edad primero comenzo siendo un numero pero luego se le asigno un string y JS no se que queja nada.
 
 
 
