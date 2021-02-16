@@ -32,8 +32,7 @@ imprimeNombreEnMay(chris);
 
 function imprimirReto(persona){
     // Aqui desestructuramos el objeto
-    var { nombre } = persona;
-    var { edad } = persona;
+    var { nombre, edad } = persona;
     console.log(`Hola, me llamo ${nombre} y tengo ${edad} años.`)
 }
 
