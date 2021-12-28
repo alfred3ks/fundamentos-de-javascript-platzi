@@ -1,4 +1,3 @@
-// Funciones que retornan valores
 
 /*
 En esta clase aprenderemos a utilizar Arrow Functions que permiten una nomenclatura más corta para escribir expresiones de funciones. Este tipo de funciones deben definirse antes de ser utilizadas.

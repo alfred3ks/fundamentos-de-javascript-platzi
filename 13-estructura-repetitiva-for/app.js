@@ -19,6 +19,7 @@ let sacha = {
 }
 
 console.log(`Al inicio del año ${sacha.nombre} pesa ${sacha.peso} Kg.`);
+
 console.log(Math.random().toFixed(2));
 
 const PESO = 0.2;

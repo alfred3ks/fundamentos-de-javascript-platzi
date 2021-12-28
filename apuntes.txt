@@ -1,0 +1,1350 @@
+FUNDAMENTOS DE JAVASCRIPT:
+____________
+1.VARIABLES:
+------------
+var nombre; // Declaracion de una variable
+console.log(nombre); // undefined
+
+nombre = 'Alfredo'; // Asignacion de la variable
+console.log(nombre);
+
+var apellido = 'Sánchez';
+
+NOTA: Usaremos comillas simples para los string (''),
+tambien LA ; al final de sentencia puede ser opcional, yo en mi caso lo voy a poner.
+
+console.log('Hola, ' + nombre + '.'); //Usando el operador concatenacion (+)
+
+console.log(`Hola, ${nombre}.`); // Usando comillas invertidas. O llamadas backticks.
+
+console.log(`Hola, ${nombre} ${apellido}.`)
+
+JS es debilmente tipado y tenemos que tener cuidado con eso.
+
+Ejemplo:
+
+    var edad = 45;
+    edad = '45 años'
+    console.log(`Tengo ${edad} años`)
+
+La variable edad primero comenzo siendo un numero pero luego se le asigno un string y JS no se que queja nada.
+
+___________________
+2.VARIABLES STRING:
+-------------------
+Los strings son cadenas de texto. Para indicar que estamos usando una cadena de texto debemos de colocar las comillas simples o dobles.
+
+En este curso utilizaremos los métodos:
+
+    toUpperCase, que sirve para transformar un String a mayúsculas.
+
+    toLowerCase, que sirve para transformar el string a minúsculas.
+
+También usaremos el atributo:
+
+    length, que nos indica la cantidad de caractéres que tiene un string.
+
+Para concatenar dos strings se utiliza el símbolo (+)
+var nombreCompleto = nombre + ’ ’ + apellido
+
+Desafío: Encuentra la última letra de tu nombre
+
+Variables string, metodos y atributos mas usados.
+OJO los metodos los invocamos .metodo(),
+y los atributos no llevan parentesis. .atributo
+
+    var nombre = 'Alfredo';
+    var apellido = 'Sánchez';
+
+Vamos a convertir el nombre todo en mayusculas. Usando el metodo .toUpperCase()
+
+    var nombreEnMayuscula = nombre.toUpperCase();
+    console.log(nombreEnMayuscula);
+
+Vamos a transformar el apellido en minusculas, usaremos el metodo .toLowerCase()
+
+    var apellidoEnMinusculas = apellido.toLowerCase();
+    console.log(apellidoEnMinusculas)
+
+Conocer un caracter de una string, usaremos el metodo .charAt() que recibe la posicion del caracter que queremos conocer. Si no le decimos ningun parametro nos arroja la primera letra
+
+    var primeraLetraNombre = nombre.charAt();
+    var primeraLetraNombre = nombre.charAt(5);
+    var primeraLetraNombre = nombre.charAt(3);
+    console.log(primeraLetraNombre);
+
+Tambien podemos preguntar cuantos caracteres tiene. Usaremos el atributo .length
+
+    var cantidadDeLetrasNombre = nombre.length;
+    console.log(cantidadDeLetrasNombre);
+
+Tambien podemos ver como concatenar dos string.
+
+    var nombreCompleto = nombre + ' ' + apellido;
+    console.log(nombreCompleto);
+
+Tenemos otra forma de concatenar usando template string, usando las comillas doble invertidas (``), interpolacion de texto. Es mas moderno a partir de ES6
+
+    var nombreCompletoString = `${nombre} ${apellido}.`;
+    console.log(nombreCompletoString);
+
+Podemos tambien a un substring dentro de un string, lo haremos con el metodo substring() el cual recibe dos parametros, desde donde queremos que empiece, osea que posicion y cuantos caracteres queremos que tome.
+
+    var str = nombre.substr(1, 4);
+    console.log(str);
+
+Desafio mostrar la ultima letra de tu nombre:
+
+Obtengo todos los caracteres del nombre, usando el metodo .split()
+
+    var todosLosCaracteres = nombre.split('');
+    console.log(todosLosCaracteres); // Muestro todos los caracteres.
+
+Obtengo la ultima letra del nombre:
+
+    var ultimaLetra = todosLosCaracteres[todosLosCaracteres.length -1];
+    console.log(ultimaLetra);
+
+
+Otra forma mas sencilla:
+
+    var ultimaLetraNombre = nombre.charAt(nombre.length -1);
+    console.log(ultimaLetraNombre);
+
+____________________
+3.VARIABLES NUMEROS:
+--------------------
+En esta seccion aprenderemos variables de tipo números y las operaciones más comunes en este tipo de variables.
+
+En esta clase veremos operadores matemáticos como:
+
+    suma ( + )
+    resta ( - )
+    multiplicación (*)
+    división (/)
+
+Recuerda que en operaciones con decimales debemos realizar operaciones adicionales para conseguir un resultado preciso. Ej. var total = ( precioDeVino * 100 * 3) / 100
+
+Para redondear una operación se utiliza la función: Math.round
+
+
+Números en JS y las operaciones mas comunes.
+Supongamos que tenemos una variable que tiene un numero
+
+    var edad = 27;
+    console.log(edad);
+
+Incrementos de una variable:
+
+    edad = edad + 1; esto es lo mismo que abajo
+
+    edad += 1;
+    console.log(edad);
+
+Decremento de una variable:
+
+    var peso = 75;
+    console.log(peso)
+    // peso = peso -2;
+    peso -= 2;
+    console.log(peso)
+
+Sumar dos numeros distintos:
+
+    var sandwich = 1;
+    peso  += sandwich; // Nos comemos un sandwich
+    console.log(`El peso despues de comerme un sandwich es ${peso} Kg.`);
+
+Restar dos numeros:
+
+    var jugarAlFutbol = 3;
+    peso -= jugarAlFutbol;
+    console.log(`Despues de jugar al futbol mi peso es de ${peso} Kg`)
+
+Ejemplo con decimales:
+
+    var precioVino = 200.3;
+    var total = precioVino * 3;
+    console.log(total);
+
+Si imprimimos asi lo hace con muchos decimales y no es tan exacto imaginate que es el resultado de una carrito.
+
+Para que sea preciso usaremos a el modulo de JS matematicas Math:
+
+    total = Math.round(precioVino * 3 * 100) / 100;
+    console.log(total);
+
+Si queremos dar mas de un decimal, con el metodo .toFixed() y le decimos la cantidad de decimales, pero ojo el valor que nos arroja es un string, OJO con eso:
+
+    var totalStr = total.toFixed(2);
+    console.log(totalStr);
+
+Para pasar ese string a numero, con el metodo parseFloat() y le pasamos el dato como parametro:
+
+    var totalStrNumero = parseFloat(totalStr);
+    console.log(totalStrNumero);
+
+Ahora vamos a ver como hacer una division:
+
+    var pizza = 8; // tenemos una pizza en 8 porciones
+    var personas = 2;
+    var cantidadPorcionesPersona = pizza / personas;
+
+    console.log(cantidadPorcionesPersona);
+
+____________
+4.FUNCIONES:
+------------
+Las funciones son fracciones de código reutilizable. En esta clase aprenderemos a definir e invocar nuestras funciones. Para definir una función utilizaremos la palabra reservada ““function””.
+
+Delimitamos el cuerpo de la función usando llaves { }. Los parámetros de la función son variables que se pasan a la función escribíendolos entre paréntesis ()
+
+Definir funciones nos sirve para reutilizar código. JavaScript es un lenguaje interpretado, esto quiere decir que intentará ejecutar el código sin importar si los parámetros que le pasemos a la función estén invertidos o incluso incompletos.
+
+
+    var nombre = 'Alfredo';
+    var edad = 45;
+
+Para definir una funcion se usa la palabra reservada function, luego el nombre que llevara la funcion. Esta puede recibir o no parametros, pero lo veremos mas adelante, para este caso no. Para llamar la funcion escribimos el nombre la funcion con los parentesis.
+
+    function imprimirEdad(){
+        console.log(`${nombre} tiene ${edad} años.`);
+    }
+
+    imprimirEdad();
+
+Funcion pasando parametros, para diferentes personas. Aqui vemos el potencial de las funciones.
+
+    function imprimirEdadParametros(n, e){
+        console.log(`${n} tiene ${e} años.`)
+    }
+
+    imprimirEdadParametros('Vicky', 29);
+    imprimirEdadParametros('Andres', 49);
+    imprimirEdadParametros('Diego', 36);
+
+Pasamos por parametros las variables arriba declaradas:
+
+    imprimirEdadParametros(nombre, edad);
+
+Ahora una cosa interesante veamos que pasa si invertimos los parametros. JS no lanza ningun error, lo ejecuta sin problemas. Hay que tener cuidado con esto, igual pasa si no le pasamos parametros.
+
+    imprimirEdadParametros(34, 'Andrea');
+    imprimirEdadParametros();
+
+___________________________
+5.ALCANCE DE LAS FUNCIONES:
+---------------------------
+En esta clase hablaremos del alcance que tienen las funciones. Si una variable no está definida dentro del cuerpo de una función hablamos de una variable global. Por el contrario, una variable definida dentro de una función es una variable local.
+
+Para que la ejecución de una función no modifique una variable global usamos parámetros en lugar de pasar directamente la variable.
+
+Es posible utilizar el mismo nombre para una variable global y para el parámetro de una función con un alcance local.
+
+
+    var nombre = 'Alfred';
+    var apellido = 'Sanchez';
+
+    function imprimirNombreMay(){
+        nombre = nombre.toUpperCase();
+        console.log(nombre);
+    }
+
+    imprimirNombreMay();
+
+Si una variable no esta definida dentro del cuerpo de una funcion se dice que esa variable es de alcence global. Eso significa que se puede acceder desde cualquier funcion.
+
+Cuando definimos una variable como es nuestro ejemplo de manera global esta se le asigna al objeto global y este objeto global depende donde estemos ejecutando js. Si es en un servidor seria el entorno de NODE, y si es en el cliente el objeto global seria windows, la ventana.
+
+    console.log(window.nombre);
+
+Es ahi donde esta definido esta variable.
+
+Ahora una cosa que hay que ver que nuestra funcion al acceder a nuestra variable esta sucediendo un "efecto de lado" esto quiere decir que esta funcion va a modificar variables que no estan definidas dentro de ella, va a tocar cosas que entre comillas no le corresponden, lo cual es muy recomendable evitar dentro de nuestro codigo.
+
+Veamos como podemos hacer para hacer nuestro codigo mas profesional y no modificar nuestra variable global.
+
+    function imprimirNombreMayProf(n){
+        n = n.toUpperCase();
+        console.log(n);
+    }
+
+    imprimirNombreMayProf(apellido);
+
+Asi evitamos el efecto de lado y nuestra variable global no es modificada. La varible n dentro de la funcion local y solo se puede acceder a ella dentro de la funcion en el alcance global no existe.
+
+    console.log(n);
+
+    app.js:37 Uncaught ReferenceError: n is not defined
+    at app.js:35
+
+
+Una cosa que tambien nos permite JS que el parametros que le pasemos a nuestra funcion la podemos llamar igual que la varible global asi que nuestrs varible existe dentro de la funcion y fuera de esta asi:
+
+
+
+    function imprimirNombreMayProf(nombre){
+        nombre = nombre.toUpperCase();
+        console.log(nombre);
+    }
+
+__________
+6.OBJETOS:
+----------
+Vamos a empezar a trabajar con objetos, veremos cómo declararlos, cuáles son sus ventajas, cómo asignarles atributos y cómo trabajar con ellos dentro de las funciones.
+
+Los objetos se definen delimitados mediante llaves {}
+
+Un atributo se compone de una clave (key) y un valor (value), que se separan entre sí por dos puntos “”:"". Los valores pueden ser de tipo string, número, booleano, etc. Cada atributo está separado del siguiente por una coma. Un objeto puede tener todos los atributos que sean necesarios.
+
+Escribir el nombre de un objeto separado por un punto del nombre de un atributo, nos permite acceder al valor de dicho atributo para ese objeto. Un objeto también se puede pasar como atributo en una función.
+
+Las últimas versiones de JavaScript nos permiten desglosar el objeto para acceder únicamente al atributo que nos interesa. Esto se consigue encerrando el nombre del atributo entre llaves { }.
+
+
+    var nombreAlfred = 'Alfred';
+    var nombreDario = 'Dario';
+
+Lo mejor es crear un objeto, donde tenemos una clave con un valor.
+
+Onjetos de personas:
+
+    var alfred = {
+        nombre: 'Alfred',
+        apellido: 'Sánchez',
+        edad: 45
+    }
+
+    var dario = {
+        nombre: 'Dario',
+        apellido: 'Susnisky',
+        edad: 27
+    }
+
+    function imprimirNombreMay(persona){
+        var nombre = persona.nombre.toUpperCase();
+        console.log(nombre);
+    }
+
+Para acceder a los elementos del objejo lo hacemos invocando el objeto.propiedad como en este caso alfred.nombre
+
+
+    imprimirNombreMay(alfred);
+    imprimirNombreMay(dario);
+
+Ahora si solo necesitamos pasar de nuestro objeto el nombre lo podemos hacer asi:
+
+Se llama desestructurar el objeto:
+
+    function imprimirSoloNombre({ nombre }){
+        // Por parametro recibe el objeto que queramos
+        var nombre = nombre.toUpperCase();
+        console.log(`Desestructuramos el objeto: ${nombre}.`);
+    }
+
+    imprimirSoloNombre(alfred);
+
+Tambien podemos definir el objeto aqui:
+
+    imprimirSoloNombre({ nombre:'Pepito' })
+
+_________________________
+7.DESESTRUCTURAR OBJETOS:
+-------------------------
+En esta clase aprenderemos otra forma de acceder a los atributos de los objetos que es la desestructurización de los mismos.
+Para no duplicar las variables introducir el nombre de la variable como parámetro de la segunda variable. Ej var{nombre} = persona
+
+Reto: resolver la función que está comentada al final del ejercicio.
+
+
+Creamos nuestros objetos.
+
+    var alfred = {
+        nombre: 'Alfred',
+        apellido: 'Sánchez',
+        edad: 45
+    }
+
+    var chris = {
+        nombre: 'Christian',
+        apellido: 'Sánchez',
+        edad: 10
+    }
+
+    function imprimeNombreEnMay(persona){
+        // var nombre = persona.nombre --> Lo mismo que abajo
+        var { nombre } = persona;
+        console.log(nombre.toUpperCase());
+    }
+
+    imprimeNombreEnMay(alfred);
+    imprimeNombreEnMay(chris);
+
+Reto crear una funcion que imprima el nombre y la edad, y que diga: Hola, me llamo xxx y tengo xx años.
+
+    function imprimirReto(persona){
+        // Aqui desestructuramos el objeto
+        var { nombre, edad } = persona;
+        console.log(`Hola, me llamo ${nombre} y tengo ${edad} años.`)
+    }
+
+    imprimirReto(alfred);
+    imprimirReto(chris);
+
+___________________________________
+8.PASAR PARAMETROS COMO REFERENCIA:
+-----------------------------------
+Javascript se comporta de manera distinta cuando le pasamos un objeto como parámetro.
+
+Cuando los objetos se pasan como una referencia, estos se modifican fuera de la función. Para solucionar esto se puede crear un objeto diferente. Esto lo podemos hacer colocando tres puntos antes del nombre. Ej …persona.
+
+
+Creamos nuestros objetos.
+
+    var alfred = {
+        nombre: '',
+        apellido: 'Sánchez',
+        edad: 45
+    }
+
+    var chris = {
+        nombre: 'Christian',
+        apellido: 'Sánchez',
+        edad: 10
+    }
+
+    function imprimeNombreEnMay(persona){
+        // var nombre = persona.nombre --> Lo mismo que abajo
+        var { nombre } = persona;
+        console.log(nombre.toUpperCase());
+    }
+
+    imprimeNombreEnMay(alfred);
+    imprimeNombreEnMay(chris);
+
+Veamos el tema de pasar parametros
+
+    function cumpleanos(persona){
+        var persona = persona.edad +=1;
+        console.log(persona);
+
+    }
+
+    console.log(alfred);
+
+    cumpleanos(alfred);
+
+    console.log(alfred);
+
+    cumpleanos(alfred);
+    cumpleanos(alfred);
+    cumpleanos(alfred);
+
+    console.log(alfred);
+
+
+Como podemos ver JS tiene un tipo de comportamiento distinto con los objetos, que al sumar la edad esta se modifica en el objeto inicila y si volvemos a incrementar la edad esta siempre se modificaria en el objeto, esto no nos conviene, queremos que el objeto original no se modifique.
+
+    LOS OBJETOS QUE PASAMOS POR PARAMETROS SE PASAN POR "REFERENCIA", eso quiere decir que si lo modificamos dentro del cuerpo de una funcion su valor se va a ver modificado fuera de esa funcion.
+
+Ahora como ¿podemos evitar esto? bueno una es dejarlo como esta sabiendo lo que sucede que nuestro objeto inicial seria modificado porque es algo que realmente queremos, o tambien podemos devolver un nuevo objeto y este nuevo objeto debe tener todo lo mismo del objeto original excepto la edad que se debe incrementar, asi no modificamos el objeto original.
+
+    var susan = {
+        nombre: 'Susana',
+        apellido: 'Serrano',
+        edad: 45
+    }
+
+    var leonard = {
+        nombre: 'Leonardo',
+        apellido: 'Turtle',
+        edad: 15
+    }
+
+    function cumpleanoGood(persona){
+        // Desglosamos a la persona dentro de este nuevo objeto
+        return {
+            ...persona,
+            edad: persona.edad + 1
+        }
+        console.log(persona)
+    }
+
+Objeto original
+    console.log(susan);
+
+Objeto al sumar en 1 la edad
+    var susanTwoObj= cumpleanoGood(susan);
+    console.log(susanTwoObj);
+
+Vemos que no se altera el objeto original
+    console.log(susan);
+
+Ahora vemos el ejemplo con tortle
+
+    function cumpleanos(persona){
+        return {
+            ...persona,
+            edad: persona.edad + 1
+        }
+    }
+
+    var newLeonard = cumpleanos(leonard);
+
+    console.log(leonard);
+    console.log(newLeonard);
+    console.log(leonard);
+
+______________________________
+9.COMPARACIONES EN JAVASCRIPT:
+------------------------------
+Existen varias maneras de comparar variables u objetos dentro de javascript. En el primer ejemplo le asignamos a X un valor numérico y a Y un string. Para poder compararlos debemos agregar dos signos de igual (==). Esto los convierte al mismo tipo de valor y permite que se puedan comparar.
+
+Cuando realizamos operaciones es recomendable usar tres símbolos de igual (===). Esto permite que JavasScript no iguale las variables que son de distinto tipo. Te recomendamos que uses el triple igual siempre que estés comparando variables.
+
+Existen cinco tipos de datos que son primitivos:
+
+    Boolean
+    Null
+    Undefined
+    Number
+    String
+    */
+
+    var x = 4;
+    var y = '4';
+
+Primera forma de comparar cosas en JS, para eso usaremos el ==, doble igual.
+
+    console.log(x == y); // true
+
+Cuando usamos doble igual (==)en JS lo que hace el lenguaje es comparar ambas variables en el tipo de la variable, agarra el valor de x = 4 numerico y lo tranasforma a string y lo compara con la variable y = '4' que es otro string por eso nos devuelve true. OJO solo los compara en tipos. Si queremos saber su comparacion en valor y tipo debemos unsar triple igual (===).
+
+    console.log(x === y); // false
+
+OJO IMPORTANTE!!! - Lo recomendable siempre que podamos usar el triple igual (===) cuando tengamos que hacer comparaciones.
+
+Ok ahora veamos como se comporta JS al comparar objetos.
+
+    var sacha = {
+        nombre: 'Sacha'
+    }
+
+    var otraPersona = {
+        nombre: ' Sacha'
+    }
+
+Hacemos la comparacion
+
+    console.log(sacha == otraPersona); //false
+    console.log(sacha === otraPersona); //false
+
+Muy diferente a lo de arriba que compara valores primitivos. Aqui la comparacion es de objetos, con (==) o (===) lo que hace JS es preguntar por la referencia de la variable que estamos utilizando. Si nos interesa que nos diera true la unica forma de hacerlo es como vemos a continuacion: La variable segundaPersona apunta a la misma referencia del primer objeto, osea el mismo espacio en memoria del ordenador
+
+    var segundaPersona = sacha;
+    console.log(sacha == segundaPersona); //true
+    console.log(sacha === segundaPersona); //true
+
+Ahora veamo con la creacion de otro objeto
+
+    var terceraPersona = {
+        ...sacha
+    }
+
+    console.log(sacha == terceraPersona); //false
+    console.log(sacha === terceraPersona); //false
+
+Como podemos ver da false porque dentro del objeto terceraPersona estamos creando un nuevo objeto, no es el mismo primer objeto y sus referencias son diferentes.
+
+Ahora veamos otro ejemplo, tenemos un objeto inicial y un segundo objeto que apunta al primero si modificamos al segundo objeto tambien modificamos al primero ya que amb0s apuntan a la misma referencia:
+
+    var obj1 = {
+        nombre: 'Sacha'
+    }
+    console.log(sacha); // {nombre: "Sacha"}
+
+    var obj2 = sacha;
+    console.log(sacha); // {nombre: "Sacha"}
+
+    sacha.nombre = 'Pepe';
+
+    console.log(sacha); // {nombre: "Pepe"}
+
+_______________________________________
+10.CONDICIONALES EN JAVASCRIPT: if else
+---------------------------------------
+En esta clase empezaremos a trabajar con estructuras de control, éstas nos permiten decidir el flujo de nuestro código.
+
+Empezaremos con los condicionales. Los condicionales nos permiten decidir si un código se ejecuta o no. También introducimos un nuevo tipo de datos primitivos: el booleano, que determina si un valor es falso o verdadero. Mediante un condicional (if) decidiremos si se ejecuta una parte de nuestro código cuando se cumpla o no cierta condición.
+
+
+Las estructuras de control deciden si un codigo se ejecuta o no.
+
+    let sacha = {
+        nombre: 'Sacha',
+        apellido: 'Lifszyc',
+        edad: 16,
+        ingeniero: false,
+        cocinero: false,
+        cantante: false,
+        dj: false,
+        guitarrista: false,
+        drone: true
+    }
+
+Definimos una funcion que nos dice que profesion tiene una persona
+
+    function imprimirProfesiones(persona){
+    console.log(`${persona.nombre} es: `);
+
+    if(persona.ingeniero === true)
+        if(persona.ingeniero){
+            console.log('Ingeniero.');
+        } else {
+            console.log('No es ingeniero.');
+        }
+        if(persona.cocinero){
+            console.log('Cocinero.');
+        }
+        if(persona.cantante){
+            console.log('Cantante.');
+        }
+        if(persona.dj){
+            console.log('DJ.');
+        }
+        if(persona.drone){
+            console.log('Piloto de drones.');
+        }
+    }
+
+    imprimirProfesiones(sacha);
+
+Como podemos ver con el if solo se ejecuta el codigo que es true.
+
+Reto: escribir la funcion imprimirSiEsMayorDeEdad().
+
+    function imprimirSiEsMayorDeEdad(persona){
+        if(persona.edad >= 18){
+            console.log(`${persona.nombre} es mayor de edad.`);
+        } else {
+            console.log(`${persona.nombre} es menor de edad.`);
+        }
+    }
+
+    imprimirSiEsMayorDeEdad(sacha);
+
+__________________________________
+11.FUNCIONES QUE RETORNAN VALORES:
+----------------------------------
+En esta clase seguiremos trabajando con condicionales para desglosar las funciones en funciones más pequeñas que retornen un valor.
+
+Debemos de tener en cuenta que el número 18 esta incluido dentro del rango de edad. Para ello utilizamos los símbolos >=.
+
+Return detiene la ejecución de una función y devuelve el valor de esa función.
+
+Las variables definidas con const se comportan como las variables, excepto que no pueden ser reasignadas. Las constantes pueden ser declaradas en mayúsculas o minúsculas. Pero por convención, para distinguirlas del resto de variables, se escribe todo en mayusculas.
+
+
+    let sacha = {
+        nombre: 'Sacha',
+        apellido: 'Lifszyc',
+        edad: 28,
+        ingeniero: false,
+        cocinero: false,
+        cantante: false,
+        dj: false,
+        guitarrista: false,
+        drone: true
+    }
+
+    let juan = {
+        nombre: 'Juan',
+        apellido: 'Gomez',
+        edad: 13
+    }
+
+Definimos una funcion que nos dice que profesion tiene una persona
+
+    function imprimirProfesiones(persona){
+        console.log(`${persona.nombre} es: `);
+
+    if(persona.ingeniero === true)
+        if(persona.ingeniero){
+            console.log('Ingeniero.');
+        } else {
+            console.log('No es ingeniero.');
+        }
+        if(persona.cocinero){
+            console.log('Cocinero.');
+        }
+        if(persona.cantante){
+            console.log('Cantante.');
+        }
+        if(persona.dj){
+            console.log('DJ.');
+        }
+        if(persona.drone){
+            console.log('Piloto de drones.');
+        }
+    }
+
+    imprimirProfesiones(sacha);
+
+Como podemos ver con el if solo se ejecuta el codigo que es true.
+
+Reto: escribir la funcion imprimirSiEsMayorDeEdad().
+
+Aqui creamos la logica de la mayoria de edad, devuelve true o false en funcion de la condicion del objeto
+
+    const MAYORIA_DE_EDAD = 18;
+
+OJO es comunmente las constantes declararlas asi en mayusculas y separadas por guiones bajos.
+
+    function esMayorDeEdad(persona){
+        return persona.edad >= MAYORIA_DE_EDAD;
+    }
+
+    function imprimirSiEsMayorDeEdad(persona){
+        if(esMayorDeEdad(persona)){
+            console.log(`${persona.nombre} es mayor de edad.`);
+        } else {
+            console.log(`${persona.nombre} es menor de edad.`);
+        }
+    }
+
+    imprimirSiEsMayorDeEdad(sacha);
+    imprimirSiEsMayorDeEdad(juan);
+
+__________________
+12.ARROW FUNCTION:
+------------------
+En esta clase aprenderemos a utilizar Arrow Functions que permiten una nomenclatura más corta para escribir expresiones de funciones. Este tipo de funciones deben definirse antes de ser utilizadas.
+
+Al escribir las Arrow Functions no es necesario escribir la palabra function, la palabra return, ni las llaves.
+
+    let sacha = {
+        nombre: 'Sacha',
+        apellido: 'Lifszyc',
+        edad: 28,
+        ingeniero: false,
+        cocinero: false,
+        cantante: false,
+        dj: false,
+        guitarrista: false,
+        drone: true
+    }
+
+    let juan = {
+        nombre: 'Juan',
+        apellido: 'Gomez',
+        edad: 13
+    }
+
+/Definimos una funcion que nos dice que profesion tiene una persona
+
+    function imprimirProfesiones(persona){
+        console.log(`${persona.nombre} es: `);
+
+    if(persona.ingeniero === true)
+        if(persona.ingeniero){
+            console.log('Ingeniero.');
+        } else {
+            console.log('No es ingeniero.');
+        }
+        if(persona.cocinero){
+            console.log('Cocinero.');
+        }
+        if(persona.cantante){
+            console.log('Cantante.');
+        }
+        if(persona.dj){
+            console.log('DJ.');
+        }
+        if(persona.drone){
+            console.log('Piloto de drones.');
+        }
+    }
+
+    imprimirProfesiones(sacha);
+
+Como podemos ver con el if solo se ejecuta el codigo que es true.
+
+Reto: escribir la funcion imprimirSiEsMayorDeEdad().
+
+Aqui creamos la logica de la mayoria de edad, devuelve true o false en funcion de la condicion del objeto
+
+    const MAYORIA_DE_EDAD = 18;
+
+ojo es comunmente las constantes declararlas asi en mayusculas y separadas por guiones bajos.
+
+Esta funcion asignada a una variable y la funcion es anonima:
+
+    let esMayorDeEdad = function (persona){
+        return persona.edad >= MAYORIA_DE_EDAD;
+    }
+
+Asi la podemos definir tambien como arrow function:
+    const esMayorDeEdad = persona => persona.edad >= MAYORIA_DE_EDAD;
+
+
+Haciendo desestructuracion del objeto porque solo necesitamos la edad
+
+    const esMayorDeEdad = ({ edad }) => edad >= MAYORIA_DE_EDAD;
+
+    function imprimirSiEsMayorDeEdad(persona){
+        if(esMayorDeEdad(persona)){
+            console.log(`${persona.nombre} es mayor de edad.`);
+        } else {
+            console.log(`${persona.nombre} es menor de edad.`);
+        }
+    }
+
+    imprimirSiEsMayorDeEdad(sacha);
+    imprimirSiEsMayorDeEdad(juan);
+
+
+En JS existe otras maneras de expresar funciones:
+
+- Podemos asignar a una variable una funcion y la funcion pasa a llamarse anonima, ya que no tiene nombre:
+
+    let esMayorDeEdad = function (persona){
+        return persona.edad >= MAYORIA_DE_EDAD;
+    }
+
+    esMayorDeEdad(persona);
+
+- Tambien tenemos en JS las arrow function:
+1- Cuando tenemos un solo parametro podemos obviar los parentesis.
+2- JS tambien permite que si una funcion solo realiza un return podemos eliminar el return y las llaves.
+
+    const esMayorDeEdad = persona => persona.edad >= MAYORIA_DE_EDAD;
+
+Ahora vamos a permitir el acceso o no a una web:
+
+    function permitirAcceso(persona) {
+        if(!esMayorDeEdad(persona)){
+            console.log('Acceso denegado');
+        }
+    }
+
+    permitirAcceso(juan);
+    permitirAcceso(sacha);
+
+Reto escribir la funcion es menor de edad como arrow function y que retorne la negacion a la llamada esMayorDeEdad.
+
+    const permitirEntrar = (persona) => {
+        if(!esMayorDeEdad(persona)){
+            console.log(`Lo siento ${persona.nombre}, no puedes entrar, eres menor de edad.`);
+        } else {
+            console.log(`Adelante ${persona.nombre}, puedes entrar, nunca pares de aprender.`);
+        }
+    }
+
+    permitirEntrar(juan);
+    permitirEntrar(sacha);
+
+
+OJO Queda por ver un operador bastante intersante que se llama el operador ternario.
+
+_____________
+13.CICLO-FOR:
+-------------
+En esta clase estudiaremos una de las estructuras básicas de control. El bucle for, se utiliza para repetir una o más instrucciones un determinado número de veces.
+
+Para escribir un bucle for se coloca la palabra for seguida de paréntesis y llaves.
+Ej. for( ){ }. Dentro de los paréntesis irán las condiciones para ejecutar el bucle, y dentro las llaves irán las instrucciones que se deben repetir.
+
+En este ejemplo la variable i la utilizamos como contador.
+
+Ciclo for --> dentro del () inicializamos con un contador en nuestro caso la variable i, luego le damos la condicion, y luego el incremento que va a tener nuestro contador.
+*/
+
+En este ejercicio vamos a ver como una persona incrementa o disminuye su peso en un año de manera aleatoria usando la biblioteca de JS Math.
+
+    let sacha = {
+        nombre: 'Sacha',
+        apellido: 'Lifszic',
+        edad: 28,
+        peso: 75
+    }
+
+    console.log(`Al inicio del año ${sacha.nombre} pesa ${sacha.peso} Kg.`);
+
+    console.log(Math.random().toFixed(2));
+
+    const PESO = 0.2;
+
+El incremento de peso es de 200grs
+const aumentarDePeso = persona => persona.peso += PESO;
+
+La perdida de peso es de 200grs
+const adelgazar = persona => persona.peso -=PESO;
+
+    const DIAS_DEL_ANO = 365;
+
+    for( let i = 1; i <= DIAS_DEL_ANO; i++) {
+        let random = Math.random();
+
+        if(random < 0.25){
+            //aumenta de peso
+            aumentarDePeso(sacha);
+        }else if(random < 0.5) {
+            // adelgazar
+            adelgazar(sacha);
+        }
+    }
+
+    console.log(`Al final del año ${sacha.nombre} pesa ${sacha.peso.toFixed(1)} Kg.`);
+
+_______________
+14.CICLO-WHILE:
+---------------
+En esta clase estudiaremos otra estructura repetitiva llamada while. While se ejecuta únicamente mientras la condición que se está evaluando es verdadera.
+
+En ocasiones nuestro código puede fallar por errores de syntaxis o errores lógicos. En caso de que quieras verificar tu código, debes utilizar un debugger. El código se detiene cada vez que lee esta palabra.
+
+    let sacha = {
+        nombre: 'Sacha',
+        apellido: 'Lifszic',
+        edad: 28,
+        peso: 75
+    }
+
+    console.log(`Al inicio del año ${sacha.nombre} pesa ${sacha.peso} Kg.`);
+
+
+    const PESO = 0.3;
+    const DIAS_DEL_ANO = 365;
+
+El incremento de peso es de 200grs
+
+    const aumentarDePeso = persona => persona.peso += PESO;
+
+La perdida de peso es de 200grs
+
+    const adelgazar = persona => persona.peso -=PESO;
+
+Colocamos el ramdon en una funcion, come mucho por debajo del 30% de los dias
+
+    const comeMucho = () => Math.random() < 0.3;
+
+Hacemos un afuncion que realiza deporte, el 40% de los dias.
+
+    const realizaDeporte = () => Math.random() < 0.4;
+
+Debe perder 3 kg como meta a ver si la cumple
+
+    const META = sacha.peso - 3;
+    let dias = 0;
+
+    while(sacha.peso > META){
+        if(comeMucho()){
+            //aumenta de peso
+            aumentarDePeso(sacha);
+        }
+        if(realizaDeporte()) {
+            //disminuye de
+            adelgazar(sacha);
+        }
+        dias += 1;
+    }
+
+    console.log(`Pasaron ${dias} dias hasta que ${sacha.nombre} adelgazo 3Kg.`);
+
+__________________
+15.CICLO-DO-WHILE:
+------------------
+Otra estructura repetitiva es el do-while. A diferencia de la instrucción while, un bucle do…while se ejecuta una vez antes de que se evalúe la expresión condicional.
+
+Debemos definir una variable contador.
+
+Reto, resuelve el bug que tiene el ejercicio.
+
+En argentina cuando una persona molesta mucho se le manda a la esquina a ver si llueve
+
+let contador = 0;
+
+Llueve el 25% del tiempo
+
+    const llueve = () => Math.random() < 0.35;
+
+    do {
+        contador++;
+    } while (!llueve());
+
+Resolucion del bug, cuando imprime 1 veces debe ser vez.
+
+    let frecuencia;
+
+    if(contador === 1) {
+        frecuencia = 'vez';
+    } else {
+        frecuencia = 'veces'
+    }
+
+    console.log(`Fui a ver si llovia ${contador} ${frecuencia}.`);
+
+
+______________________
+15.CONDICIONAL SWITCH:
+----------------------
+Una ultima estructura de control se llama switch. Switch se utiliza para realizar diferentes acciones basadas en múltiples condiciones.
+
+Prompt, muestra un cuadro de mensaje que le pide al usuario que ingrese algúna información.
+
+Break, sirve para que el browser se salte un bucle.
+
+Vamos a decirle el horoscopo al usuario. Usaremos un web de referencia:
+
+https://www.lanacion.com.ar/horoscopo
+
+let signo = prompt('¿Cual es tu signo?');
+console.log(signo);
+
+let aries = 'Antes de avanzar, primero deberá tener en claro a dónde quiere llegar. Sepa que contará con el empuje necesario para conquistar todo lo que desee.';
+let tauro = 'Si usted pretende cumplir con todos los objetivos, debería poner más entusiasmo en lo que hace. Evite relajarse, ya que podría perder cualquier oportunidad.';
+let geminis = 'Deje de cometer siempre el mismo error al desvalorizarse continuamente. Aunque usted no lo vea, sus méritos son muy bien reconocidos por la gente que lo rodea.';
+let cancer = 'Será una jornada donde se enfrentará con demasiadas opciones y tendrá que decidir la más conveniente. Relájese y espere a mañana para la determinación.';
+let leo = 'Transitará un excelente momento para poner todo su esfuerzo y apostar a las cosas materiales con las que siempre soñó. Gracias a su inteligencia lo conseguirá.';
+let virgo = 'Prepárese, ya que será una excelente jornada para concretar esos proyectos pendientes que hace tiempo tiene y se le dificultó alcanzar por su irresponsabilidad.';
+let libra = 'Ponga todo su entusiasmo para poder concretar las metas. Ante todo, deberá tener en claro qué es lo que quiere realmente y esforzarse por conseguirlo.';
+let escorpio = 'No quiera volver a vivir sus viejas historias, intente abandonar su pasado. Comience a sobrellevar el presente de otra manera y se sentirá menos angustiado.';
+let sagitario = 'Momento oportuno para que empiece a creer en su imaginación que será indispensable para resolver cualquiera de los inconvenientes que aparezcan.';
+let capricornio = 'Sepa que hoy despertará con mucha energía y con ganas de encontrar la felicidad después de tanto sufrimiento. Aproveche que se sentirá más jovial que nunca.';
+let acuario = 'Después de tantos inconvenientes, sería óptimo que organice adecuadamente su vida personal. Haga los cambios que crea necesarios comenzando por su hogar.';
+let piscis = 'Transitará un día fuera de lo común donde podrá aplicar su lado más perceptivo y libre. Haga lo que haga, se sentirá espléndido. Nadie podrá opacarlo.';
+
+switch (signo) {
+    case 'aries':
+        console.log(aries);
+    break;
+    case 'tauro':
+        console.log(tauro);
+    break;
+    case 'geminis':
+    case 'géminis':
+        console.log(geminis);
+    break;
+    case 'cancer':
+        console.log(cancer);
+    break;
+    case 'leo':
+        console.log(leo);
+    break;
+    case 'libra':
+        console.log(libra);
+    break;
+    case 'virgo':
+        console.log(virgo);
+    break;
+    case 'escorpio':
+        console.log(escorpio);
+    break;
+    case 'sagitario':
+        console.log(sagitario);
+    break;
+    case 'capricornio':
+        console.log(capricornio);
+    break;
+    case 'piscis':
+        console.log(piscis);
+    break;
+    default:
+        console.log('Ese signo zodiacal no es valido');
+    break;
+}
+
+______________________
+16.CONDICIONAL SWITCH: MULTIPLES SWITCH:
+----------------------
+Vamos a decir que dentro de nuestro case podemos usar multiples variables de control como vemos a continuacion:
+
+switch (signo) {
+    case 'aries':
+        console.log(aries);
+    break;
+    case 'tauro':
+        console.log(tauro);
+    break;
+    case 'geminis':
+    case 'géminis':
+        console.log(geminis);
+    break;
+    case 'cancer':
+        console.log(cancer);
+    break;
+    case 'leo':
+        console.log(leo);
+    break;
+    case 'libra':
+        console.log(libra);
+    break;
+    case 'virgo':
+        console.log(virgo);
+    break;
+    case 'escorpio':
+        console.log(escorpio);
+    break;
+    case 'sagitario':
+        console.log(sagitario);
+    break;
+    case 'capricornio':
+        console.log(capricornio);
+    break;
+    case 'piscis':
+        console.log(piscis);
+    break;
+    default:
+        console.log('Ese signo zodiacal no es valido');
+    break;
+}
+
+_____________________________
+17.INTRODUCCION A LOS ARRAYS:
+-----------------------------
+Los arrays son estructuras que nos permiten organizar elementos dentro de una collección. Estos elementos pueden ser números, strings, booleanos, objetos, etc.
+
+
+    let sacha = {
+        nombre: 'Sacha',
+        apellido: 'Lifszyc',
+        altura: 1.72
+    }
+    let alan = {
+        nombre: 'Alan',
+        apellido: 'Perez',
+        altura: 1.86
+    }
+    let martin = {
+        nombre: 'Martin',
+        apellido: 'Gomez',
+        altura: 1.85
+    }
+    let dario= {
+        nombre: 'Dario',
+        apellido: 'Juarez',
+        altura: 1.71
+    }
+    let vicky = {
+        nombre: 'Vicky',
+        apellido: 'Zapata',
+        altura: 1.56
+    }
+    let paula = {
+        nombre: 'Paula',
+        apellido: 'Barros',
+        altura: 1.76
+    }
+
+Podemos agrupar a todos dentro de una misma variable
+
+    let personas = [sacha, alan, martin, dario, vicky, paula];
+
+    console.log(personas); // Accedemos a todo el array
+    console.log(personas[0]); // Accedemos a cada elemento del array por medio de su indice
+
+    console.log(personas[0].altura); // Para acceder por indice y a un atributo del objeto
+
+    console.log(personas[5]['nombre']); // Otra forma de acceder a los atributos.
+
+Ahora podemos recorrer el array y imprimir la altura de cada uno de ellos.
+
+    for(let i = 0; i < personas.length; i++){
+        let persona= personas[i];
+        // console.log(personas[i]);
+        console.log(`${persona.nombre} mide: ${persona.altura} mts.`);
+    }
+
+
+18.FILTRAR UN ARRAY:
+--------------------
+En esta clase aprenderemos como filtrar los arrays. Para filtrar siempre necesitamos establecer una condición. En este ejemplo nuestra condición es que la estatura de las personas sea mayor de 1.80mts.
+
+El método filter( ) crea una nueva matriz con todos los elementos que pasan la prueba implementada por la función proporcionada.
+
+Recuerda que si no hay elementos que pasen la prueba, filter devuelve un array vacío.
+
+Reto: escribe el filtrado de personas bajas.
+
+    let sacha = {
+        nombre: 'Sacha',
+        apellido: 'Lifszyc',
+        altura: 1.72
+    }
+    let alan = {
+        nombre: 'Alan',
+        apellido: 'Perez',
+        altura: 1.86
+    }
+    let martin = {
+        nombre: 'Martin',
+        apellido: 'Gomez',
+        altura: 1.85
+    }
+    let dario= {
+        nombre: 'Dario',
+        apellido: 'Juarez',
+        altura: 1.71
+    }
+    let vicky = {
+        nombre: 'Vicky',
+        apellido: 'Zapata',
+        altura: 1.56
+    }
+    let paula = {
+        nombre: 'Paula',
+        apellido: 'Barros',
+        altura: 1.76
+    }
+
+Podemos agrupar a todos dentro de una misma variable: Un array de personas:
+
+    let personas = [sacha, alan, martin, dario, vicky, paula];
+
+Vamos a filtrar de nuestro array las personas altas. Para filtrar necesitamos dos cosas, un array y una condicion, esta condicion sera una funcion.
+
+Usaremos el metodo filter(condicion) para arrays la cual recibe como parametro una condicion. OJO filter() nos devuelve un array nuevo si se cumplen las condiciones. Sino el array estara vacio.
+
+    const ALTURA = 1.8;
+
+    const esAlta = persona =>  persona.altura > ALTURA;
+
+    let personasAltas = personas.filter(esAlta);
+    console.log(personasAltas);
+
+________________________
+19.TRANSFORMAR UN ARRAY:
+------------------------
+En esta clase veremos cómo transformar un array. El método map() itera sobre los elementos de un array en el orden de inserción y devuelve array nuevo con los elementos modificados.
+
+    let sacha = {
+        nombre: 'Sacha',
+        apellido: 'Lifszyc',
+        altura: 1.72
+    }
+    let alan = {
+        nombre: 'Alan',
+        apellido: 'Perez',
+        altura: 1.86
+    }
+    let martin = {
+        nombre: 'Martin',
+        apellido: 'Gomez',
+        altura: 1.85
+    }
+    let dario= {
+        nombre: 'Dario',
+        apellido: 'Juarez',
+        altura: 1.71
+    }
+    let vicky = {
+        nombre: 'Vicky',
+        apellido: 'Zapata',
+        altura: 1.56
+    }
+    let paula = {
+        nombre: 'Paula',
+        apellido: 'Barros',
+        altura: 1.76
+    }
+
+Podemos agrupar a todos dentro de una misma variable:
+
+    let personas = [sacha, alan, martin, dario, vicky, paula];
+
+Vamos a transformar nuestro array original y pasaremos la altura de cada objeto de mts a cm. OJO se modifica el array original.
+
+    const pasarAlturaACms = persona => {
+        /* persona.altura = persona.altura * 100;
+        persona.altura *= 100;  Estas dos lineas son iguales */
+        // return persona;
+
+        // Asi a continuacion no modificamos el array original
+
+        return {
+            ...persona,
+            altura: persona.altura * 100
+        };
+    }
+
+    let personasCms = personas.map(pasarAlturaACms)
+    console.log(personasCms);
+    console.log(personas);
+
+    console.log(personas[0] === personasCms[0]); // false
+
+____________________
+20.REDUCIR UN ARRAY:
+--------------------
+El método reduce() nos permite reducir, mediante una función que se aplica a cada uno de los elemento del array, todos los elementos de dicho array, a un valor único.
+
+    let sacha = {
+        nombre: 'Sacha',
+        apellido: 'Lifszyc',
+        altura: 1.72,
+        cantidadDeLibros: 78
+    }
+    let alan = {
+        nombre: 'Alan',
+        apellido: 'Perez',
+        altura: 1.86,
+        cantidadDeLibros: 132
+    }
+    let martin = {
+        nombre: 'Martin',
+        apellido: 'Gomez',
+        altura: 1.85,
+        cantidadDeLibros: 90
+    }
+    let dario= {
+        nombre: 'Dario',
+        apellido: 'Juarez',
+        altura: 1.71,
+        cantidadDeLibros: 91
+    }
+    let vicky = {
+        nombre: 'Vicky',
+        apellido: 'Zapata',
+        altura: 1.56,
+        cantidadDeLibros: 182
+    }
+    let paula = {
+        nombre: 'Paula',
+        apellido: 'Barros',
+        altura: 1.76,
+        cantidadDeLibros: 111
+    }
+
+Podemos agrupar a todos dentro de una misma variable
+
+    let personas = [sacha, alan, martin, dario, vicky, paula];
+
+Vamos usando el metodo reduce() sacar la cuenta total de cuantos libros hay.
+
+Por medio de un ciclo for
+
+    let acum = 0;
+    for(let i = 0; i < personas.length; i++){
+        acum = acum + personas[i].cantidadDeLibros;
+        console.log(acum);
+    }
+    console.log(`El total de libros es: ${acum}`);
+
+Ahora usaremos el metodo reduce(), la cual recibe por parametros una funcion, le ponemos el nombre que queramos y el valor inicial del acumulador que es cero para nuestro caso.
+
+Esta funcion recibe dos parametros, uno el acumulador(acumulador)
+funcion original
+
+    const reducer = (acumulador, persona) => {
+        return acumulador + persona.cantidadDeLibros;
+    }
+
+Funcion simplificada, quitando el return y desestructurando el objeto
+
+    const reducer = (acumulador, { cantidadDeLibros }) =>  acumulador + cantidadDeLibros;
+
+    let totalDelibros = personas.reduce(reducer, 0);
+    console.log(`El total de libros es: ${totalDelibros}`);
+
+
+
