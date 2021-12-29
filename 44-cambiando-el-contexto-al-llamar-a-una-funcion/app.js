@@ -41,19 +41,3 @@ setTimeout(saludar.bind(jose),3000)
 saludar.call(alfred, 'Q tal men')
 
 saludar.apply(alfred,['Eyy men'])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

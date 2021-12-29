@@ -26,18 +26,7 @@ function obtenerPersonaje(id, callback){
 
 }
 
-// Ahora obtenemos los personajes
-// obtenerPersonaje(1);
-// obtenerPersonaje(2);
-// obtenerPersonaje(3);
-// obtenerPersonaje(4);
-// obtenerPersonaje(5);
-
-//  OJO con esto el orden con que se muestran los personajes es varible nunca en el orden porque debido al asincronismo de JS basicamente como la peticion es en paralelo esta entregando por consola el personaje que el servidor entrega primero.
-
-
 // Para controlar el orden lo haremos por medio de una funcion que pasaremos arriba como callback, los request se hacen en serie no en paralelo como antes.
-
 
 //Hacemos un refactorings de la funcion.
 obtenerPersonaje(1,function(data){
@@ -61,9 +50,3 @@ obtenerPersonaje(1,function(data){
         });
     });
 })
-
-
-
-
-
-

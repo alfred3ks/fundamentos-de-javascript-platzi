@@ -17,11 +17,6 @@ Persona.prototype.saludar = function(){
     console.log(`Hola, me llamo ${this.nombre} ${this.apellido}.`)
 }
 
-// RETO: Agregamos el atributo de altura dentro del prototipo Persona()
-// Persona.prototype.soyAlto = function(){
-//     return this.altura > 1.8;
-// }
-
 // Asi es en arrow function NO HACER CAMBIA A THIS
 Persona.prototype.soyAlto = ()  => this.altura > 1.8;
 

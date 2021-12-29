@@ -22,20 +22,7 @@ const cumpleanosInmutable = (persona) => {
     }
 }
 
-console.log(sacha)
-console.log(cumpleanosInmutable(sacha))
-console.log(sacha)
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(sacha);
+console.log(cumpleanosInmutable(sacha));
+console.log(sacha);
 

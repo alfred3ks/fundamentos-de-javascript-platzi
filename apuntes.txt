@@ -1346,5 +1346,986 @@ Funcion simplificada, quitando el return y desestructurando el objeto
     let totalDelibros = personas.reduce(reducer, 0);
     console.log(`El total de libros es: ${totalDelibros}`);
 
+___________________________
+21.PROTOTYPE EN JAVASCRIPT:
+---------------------------
+Las clases son funciones cuya sintaxis tiene dos componentes:
+
+    expresiones
+    declaraciones
+
+En esta clase veremos el uso de this. Dentro de una función, el valor de this depende de cómo es llamada ésta.
+
+Reto: agrega el atributo altura y la función soyAlto.
+
+Cuando hablamos de objetos en JS estamos hablando de prototypos y no tanto de clases.
+
+En las nuevas versiones de JS ya existen las clases pero estas no son como las podemos conocer en otros lenguajes de programacion, no existe la herencia como tal. Pero si existen los prototypos
 
 
+Vamos a crear un prototipo de persona que va a saludar.
+
+Aqui tenenos el prototipo de Persona()
+
+    function Persona(nomb, apell, alt) {
+        this.nombre = nomb;
+        this.apellido = apell;
+        this.altura = alt;
+    }
+
+Para guardarlo dentro del objeto que se esta construyendo en la memoria podemos hacemos referencia dentro de la funcion como --> this, este hace referencia la objeto que se acaba de construir
+
+Dentro del prototipo de persona va existir un atributo saludar
+
+    Persona.prototype.saludar = function(){
+        console.log(`Hola, me llamo ${this.nombre} ${this.apellido}.`)
+    }
+
+RETO: Agregamos el atributo de altura dentro del prototipo Persona()
+
+    Persona.prototype.soyAlto = function(){
+        const ALTURA = 1.8;
+        if (this.altura > ALTURA){
+            console.log(`Mido más de 1.8 mts y soy alto.`);
+        } else {
+            console.log(`Mido menos de 1.8 mts y soy bajo.`)
+        }
+    }
+
+Asi creamos objetos dado un prototipo, la palabre new es reservada del lenguaje y lo que hace es crear un nuevo objeto que ira asigando al prototipo que asignemos despues, en nuestro caso Persona()
+
+    let sacha = new Persona('Sacha', 'Lifszyc', 1.9);
+    console.log(sacha);
+    sacha.saludar();
+    sacha.soyAlto();
+
+
+Asi creamos mas facilmente mas objetos
+
+    let erika = new Persona('Erika', 'Luna');
+    erika.saludar();
+    erika.soyAlto()
+
+    let arturo = new Persona('Arturo', 'Martinez');
+    arturo.saludar();
+    arturo.soyAlto();
+
+
+Reto: agregar al constructor el atributo altura, tambien agregar la funcion soy alto y que lo retorne si mide 1.8mts
+
+__________________________
+22.MODIFICAR UN PROTOTIPO:
+--------------------------
+En esta clase veremos cómo se modifican las clases de herencias. JavaScript funciona con una estructura orientada a objetos y cada objeto tiene una propiedad privada que mantiene un enlace a otro objeto llamado prototipo.
+
+
+Vamos a crear un prototipo de persona que va a saludar.
+
+Aqui tenenos el prototipo de Persona()
+
+    function Persona(nomb, apell, alt) {
+        // Para guardarlo dentro del objeto que se esta construyendo en la memoria podemos hacemos referencia dentro de la funcion como --> this, este hace referencia la objeto que se acaba de construir
+        this.nombre = nomb;
+        this.apellido = apell;
+        this.altura = alt;
+    }
+
+Dentro del prototipo de persona va existir un atributo saludar
+
+    Persona.prototype.saludar = function(){
+        console.log(`Hola, me llamo ${this.nombre} ${this.apellido}.`)
+    }
+
+RETO: Agregamos el atributo de altura dentro del prototipo Persona()
+
+    Persona.prototype.soyAlto = function(){
+        const ALTURA = 1.8;
+        if (this.altura > ALTURA){
+            console.log(`Mido más de 1.8 mts y soy alto.`);
+        } else {
+            console.log(`Mido menos de 1.8 mts y soy bajo.`)
+        }
+    }
+
+Asi creamos objetos dado un prototipo, la palabre new es reservada del lenguaje y lo que hace es crear un nuevo objeto que ira asigando al prototipo que asignemos despues, en nuestro caso Persona()
+
+    let sacha = new Persona('Sacha', 'Lifszyc', 1.9);
+    let erika = new Persona('Erika', 'Luna', 1.65);
+    let arturo = new Persona('Arturo', 'Martinez', 1.89);
+
+    sacha.saludar();
+    sacha.soyAlto();
+
+    erika.saludar();
+    erika.soyAlto()
+
+    arturo.saludar();
+    arturo.soyAlto();
+
+
+Nota:
+- Los prototypos debemos definirlos todos juntos despues del constructor.
+- dentro del prototypo no usar arrow function, ya que no tiene el comportamiento correcto con this. Eso queda mas claro en el siguiente video.
+*/
+
+_______________________________________________
+23.EL CONTEXTO DE LAS FUNCIONES, QUIEN ES THIS:
+-----------------------------------------------
+En esta clase veremos cómo se modifican las clases de herencias. JavaScript funciona con una estructura orientada a objetos y cada objeto tiene una propiedad privada que mantiene un enlace a otro objeto llamado prototipo.
+
+
+Vamos a crear un prototipo de persona que va a saludar.
+
+Aqui tenenos el prototipo de Persona()
+
+    function Persona(nomb, apell, alt) {
+        // Para guardarlo dentro del objeto que se esta construyendo en la memoria podemos hacemos referencia dentro de la funcion como --> this, este hace referencia la objeto que se acaba de construir
+        this.nombre = nomb;
+        this.apellido = apell;
+        this.altura = alt;
+    }
+
+Dentro del prototipo de persona va existir un atributo saludar
+
+    Persona.prototype.saludar = function(){
+        console.log(`Hola, me llamo ${this.nombre} ${this.apellido}.`)
+    }
+
+Asi es en arrow function NO HACER CAMBIA A THIS
+
+    Persona.prototype.soyAlto = ()  => this.altura > 1.8;
+
+Cuando usamos arrow function como anteriormente this pasa a ser windows, y este es el objeto global dentro del navegador, si buscamos yhis.altura dentro de windows es undefined y nunca undefined es mayor que 1.8 mtrs por eso cuando llamamos soyAlto() para cada objeto creado sale false. sacha.soyAlto() --> false
+
+Esto de que this no es lo que esperabamos es de los errores mas comunes que podemos encontrar en JS
+
+
+Asi creamos objetos dado un prototipo, la palabre new es reservada del lenguaje y lo que hace es crear un nuevo objeto que ira asigando al prototipo que asignemos despues, en nuestro caso Persona()
+
+    let sacha = new Persona('Sacha', 'Lifszyc', 1.9);
+    let erika = new Persona('Erika', 'Luna', 1.65);
+    let arturo = new Persona('Arturo', 'Martinez', 1.89);
+
+    sacha.saludar();
+    sacha.soyAlto();
+
+    erika.saludar();
+    erika.soyAlto()
+
+    arturo.saludar();
+    arturo.soyAlto();
+
+
+Nota:
+- Los prototypos debemos definirlos todos juntos despues del constructor.
+- dentro del prototypo no usar arrow function, ya que no tiene el comportamiento correcto con this. Eso queda mas claro en el siguiente video.
+*/
+
+___________________________________________________
+24.LA VERDAD OCULTA SOBRE LAS CLASES EN JAVASCRIPT:
+---------------------------------------------------
+¿Como hago para que un prototipo herede de otro?
+
+Los objetos en JavaScript son “contenedores” dinámicos de propiedades. Estos objetos poseen un enlace a un objeto prototipo. Cuando intentamos acceder a la propiedad de un objeto, la propiedad no sólo se busca en el propio objeto sino también en el prototipo del objeto, en el prototipo del prototipo, y así sucesivamente hasta que se encuentre una propiedad que coincida con el nombre o se alcance el final de la cadena de prototipos.
+
+
+Bastante complejo de entender, necesitamos crear esta funcion.
+
+    function heredaDe(protipoHijo, prototipoPadre){
+        // Aqui le decimos al hijo quien es el padre
+        let fn = function() {}; // Creamos una funcion vacia
+        fn.prototype = prototipoPadre.prototype;
+        protipoHijo.prototype = new fn;
+        protipoHijo.prototype.constructor = protipoHijo;
+    }
+
+Aqui tenenos el prototipo de Persona()
+
+    function Persona(nomb, apell, alt) {
+        this.nombre = nomb;
+        this.apellido = apell;
+        this.altura = alt;
+    }
+
+Dentro del prototipo de persona va existir un atributo saludar(metodo)
+    Persona.prototype.saludar = function(){
+        console.log(`Hola, me llamo ${this.nombre} ${this.apellido}.`)
+    }
+
+    Persona.prototype.soyAlto = function(){
+        const ALTURA = 1.8;
+        if (this.altura > ALTURA){
+            console.log(`Mido más de 1.8 mts y soy alto.`);
+        } else {
+            console.log(`Mido menos de 1.8 mts y soy bajo.`)
+        }
+    }
+
+Herencia prototipal en JS. Desarrollador
+
+    function Desarrollador(nomb, apell){
+        this.nombre = nomb;
+        this.apellido = apell;
+    }
+
+    heredaDe(Desarrollador, Persona);
+
+    Desarrollador.prototype.saludar = function(){
+        console.log(`Hola me llamo ${this.nombre} ${this.apellido} y soy Desarrollador/a.`);
+    }
+
+Desarrollador -----------------------------------------
+
+Creamos los objetos
+
+    let sacha = new Persona('Sacha', 'Lifszyc', 1.9);
+    let erika = new Persona('Erika', 'Luna', 1.65);
+    let arturo = new Persona('Arturo', 'Martinez', 1.89);
+    sacha.saludar();
+    sacha.soyAlto();
+
+Creamos un objeto desarrollador
+
+    let mariano = new Desarrollador('Mariano', 'Marques', 1.75)
+    mariano.saludar();
+    mariano.soyAlto();
+
+______________
+25.LAS CLASES:
+--------------
+Las clases de JavaScript son introducidas en el ECMAScript 2015 y son una mejora en la sintaxis sobre la herencia basada en prototipos de JavaScript.
+
+La palabra clave extends se usa en declaraciones de clase o expresiones de clase para crear una clase que es hija de otra clase.
+
+El método constructor es un método especial para crear e inicializar un objeto creado a partir de una clase.
+
+
+Asi creamo la clase Persona y que tiene un metodo llamado constructor, que es el que se va ejecutar al crear objetos de esta clase.
+
+    class Persona {
+        constructor(nomb, apell, alt){
+            this.nombre = nomb;
+            this.apellido = apell;
+            this.altura = alt;
+        }
+        saludar() {
+            console.log(`Hola, me llamo ${this.nombre} ${this.apellido}.`);
+        }
+        soyAlto() {
+            const ALTURA = 1.8;
+            if (this.altura > ALTURA){
+                console.log(`Mido más de 1.8 mts y soy alto.`);
+            } else {
+                console.log(`Mido menos de 1.8 mts y soy bajo.`);
+            }
+        }
+    }
+
+Asi hacemos que una clase herede de otra, nuestro caso el desarrollador de persona
+
+    class Desarrollador extends Persona {
+        constructor(nomb, apell, alt, nacionalidad) {
+            super(nomb, apell, alt); // Las que tiene el padre
+            this.nacionalidad = nacionalidad; // Las suyas en particular
+        }
+        saludar() {
+            console.log(`Hola me llamo ${this.nombre} ${this.apellido} y soy Desarrollador/a.`);
+        }
+
+        pais(){
+            console.log(`Me llamo ${this.nombre} y soy de ${this.nacionalidad}.`)
+        }
+    }
+
+Desarrollador -----------------------------------------
+
+Creamos los objetos
+
+    let sacha = new Persona('Sacha', 'Lifszyc', 1.9);
+    let erika = new Persona('Erika', 'Luna', 1.65);
+    let arturo = new Persona('Arturo', 'Martinez', 1.89);
+    sacha.saludar();
+    sacha.soyAlto();
+
+Creamos un objeto desarrollador
+
+    let mariano = new Desarrollador('Mariano', 'Marques', 1.75, 'Venezuela');
+    mariano.saludar();
+    mariano.soyAlto();
+    mariano.pais()
+
+____________________________
+26.FUNCIONES COMO PARAMETROS:
+----------------------------
+En JavaScript, los parámetros de funciones son por defecto undefined. De todos modos, en algunas situaciones puede ser útil colocar un valor por defecto diferente que lo evalúe como verdadero.
+
+
+Asi creamo la clase Persona y que tiene un metodo llamado constructor, que es el que se va ejecutar al crear objetos de esta clase.
+
+    class Persona {
+        constructor(nomb, apell, alt){
+            this.nombre = nomb;
+            this.apellido = apell;
+            this.altura = alt;
+        }
+
+recibe una funcion por parametro al ser llamada
+
+    saludar(fn) {
+        let { nombre, apellido } = this;// Otra manera de poner mas limpio
+        // console.log(`Hola, me llamo ${this.nombre} ${this.apellido}.`);
+        console.log(`Hola, me llamo ${nombre} ${apellido}.`);
+
+        if(fn){
+            fn(nombre,apellido);// Al no pasar el tercer paramatro evalua false y no se ejecuta abajo el saludo de dev
+        }
+    }
+
+    soyAlto() {
+        const ALTURA = 1.8;
+        if (this.altura > ALTURA){
+            console.log(`Mido más de 1.8 mts y soy alto.`);
+        } else {
+            console.log(`Mido menos de 1.8 mts y soy bajo.`);
+        }
+    }
+}
+
+Asi hacemos que una clase herede de otra, nuestro caso el desarrollador de persona
+
+    class Desarrollador extends Persona {
+        constructor(nomb, apell, alt, nacionalidad) {
+            super(nomb, apell, alt); // Las que tiene el padre
+            this.nacionalidad = nacionalidad; // Las suyas en particular
+        }
+        saludar(fn) {
+            let { nombre, apellido } = this;
+            // console.log(`Hola me llamo ${this.nombre} ${this.apellido} y soy Desarrollador/a.`);
+            console.log(`Hola me llamo ${nombre} ${apellido} y soy Desarrollador/a.`);
+            if(fn){
+                fn(nombre,apellido,true); // true le dice que si es dev
+            }
+        }
+
+        pais(){
+            console.log(`Me llamo ${this.nombre} y soy de ${this.nacionalidad}.`)
+        }
+    }
+
+Funciones como parametro, Muy interesante, creamos una funcion para que nos responda el saludo si somos desarrolladores y si no lo somos no responde solo saluda.
+
+    function responderSaludo(nombre, apellido, esDev) {
+        console.log(`Buen día ${nombre} ${apellido}.`);
+        if(esDev){
+            console.log(`Ahh ok!!! No sabia que eras desarrollador/a.`);
+        }
+    }
+
+Creamos los objetos
+
+    let susana = new Persona('Susana', 'Serrano', 45);
+    susana.saludar(responderSaludo);
+
+    let alfredo = new Desarrollador('Alfredo', 'Sánchez', 45,);
+    alfredo.saludar(responderSaludo);
+
+_______________________________________________
+27.COMO FUNCIONA EL ASINCRONISMO EN JAVASCRIPT:
+-----------------------------------------------
+JavaScript sólo puede hacer una cosa a la vez, sin embargo; es capaz de delegar la ejecución de ciertas funciones a otros procesos. Este modelo de concurrencia se llama EventLoop.
+
+JavaScript delega en el navegador ciertas tareas y les asocia funciones que deberán ser ejecutadas al ser completadas. Estas funciones se llaman callbacks, y una vez que el navegador ha regresado con la respuesta, el callback asociado pasa a la cola de tareas para ser ejecutado una vez que JavaScript haya terminado todas las instrucciones que están en la pila de ejecución.
+
+Si se acumulan funciones en la cola de tareas y JavaScript se encuentra ejecutando procesos muy pesados, el EventLoop quedará bloqueado y esas funciones pudieran tardar demasiado en ejecutarse.
+
+_________________________________________
+28.COMO FUNCIONA EL TIEMPO EN JAVASCRIPT:
+-----------------------------------------
+En principio, cualquier tarea que se haya delegado al navegador a través de un callback, deberá esperar hasta que todas las instrucciones del programa principal se hayan ejecutado. Por esta razón el tiempo de espera definido en funciones como setTimeout, no garantizan que el callback se ejecute en ese tiempo exactamente, sino en cualquier momento a partir de allí, sólo cuando la cola de tareas se haya vaciado.
+
+
+Veamos el tema del tiempo en JS, queremos que el segundo console lo ejecute pasado un tiempo. Usaremos una funcion del lenguaje setTimeout() que recibe dos parametros uno es una funcion y el otro el tiempo en milisegundos.
+
+    console.log('a');
+
+    setTimeout(function(){
+        console.log('b');
+    },0)
+
+    console.log('c');
+
+NOTA. Si en vez de los 3000 ms le ponemos 0, vemos que se imprimen al instante pero.... imprime a,c,b eso porque el segundo console es enviado al navegador y este la envia a la cola de tareas y Js se continua ejecutando el resto del codigo y cuando finaliza es que le pide al navegador que tarea tiene pendiente y le envia la funcion.
+
+/Ahora veamos otro ejemplo:
+
+/Tenemos una funcion que se ejecuta pasados 2seg, Como vemos se ejecuta sin problemas
+
+    setTimeout(()=> console.log('d'),2000);
+
+Ahora que pasa si tenemos mas codigo a continuacion y este tarda en ejecutarse
+
+    for(let i = 0; i < 10000000000; i++){
+
+    }
+
+Como podemos ver JS sigue ejecutandose pEro hasta que no se termine de Ejecutar el ciclo for no va a ejecutar el setTimeOut, el ciclo for bloquea el event loop y hasta que este no termine no se ejecutara luego el setTimeout.
+
+_____________
+29.CALLBACKS:
+-------------
+En esta clase aprenderemos que son los callbacks y usaremos una librería externa que se llama jQuery.
+
+Un callback es una función que se pasa a otra función como un argumento. Esta función se invoca, después, dentro de la función externa para completar alguna acción.
+
+
+Usaremos un libreria externa llamada jQuery
+
+Usaremos la API de https://swapi.dev/
+
+Vamos hacer el request para obtener los datos de la API
+
+    const API_URL = 'https://swapi.dev/api/';
+    const PEOPLE_URL = 'people/:id';
+
+    const lukeUrl = `${API_URL}${PEOPLE_URL.replace(':id', 1)}`;
+    const opts = { crossDomain: true};
+
+
+Arguments es una variable que tienen todas las funciones y nos devuelve un array con los parametros que recibe la funcion
+
+    const onResponse = function(data) {
+        console.log(arguments); // Sabemos que parametros podemos traer-->data es el que nos interesa, no lo dice la documentacion de jQuery
+        console.log(`Hola yo soy ${data.name}.`);
+    }
+
+
+Asi es con jQuery hace la peticion a la API.
+
+    $.get(lukeUrl, opts, onResponse);
+
+
+Ejemplo de arguments:
+
+    function leer(libro){
+        console.log(arguments);
+    }
+
+    leer();
+
+______________________________
+30.HACIENDO MULTIPLES REQUEST:
+------------------------------
+En esta clase accederemos a múltiples datos al mismo tiempo. Continuaremos trabajando con los jQuery y swapi.
+
+
+Usaremos un libreria externa llamada jQuery como ayuda.
+
+Usaremos la API de https://swapi.dev/
+
+Vamos hacer el request para obtener los datos de la API
+
+    const API_URL = 'https://swapi.dev/api/';
+    const PEOPLE_URL = 'people/:id';
+
+    const opts = { crossDomain: true};
+
+Vamos hacer una funcion que logee los nombres de multiples personajes y en paralelo
+
+    function obtenerPersonaje(id){
+        const url = `${API_URL}${PEOPLE_URL.replace(':id', id)}`;
+        $.get(url, opts, onResponse);
+    }
+
+
+arguments es una variable que tienen todas las funciones y nos devuelve un array con los parametros que recibe la funcion
+
+    const onResponse = function(data) {
+        //console.log(arguments); // Sabemos que parametros podemos traer-->data es el que nos interesa, no lo dice la documentacion de jQuery
+        console.log(`Hola, yo soy ${data.name}.`);
+    }
+
+Ahora obtenemos los personajes
+
+    obtenerPersonaje(1);
+    obtenerPersonaje(2);
+    obtenerPersonaje(3);
+    obtenerPersonaje(4);
+    obtenerPersonaje(5);
+
+OJO con esto el orden con que se muestran los personajes es varible nunca en el orden porque debido al asincronismo de JS basicamente como la peticion es en paralelo esta entregando por consola el personaje que el servidor entrega primero.
+
+_______________________________________________________
+31.MANEJANDO EL ORDEN Y EL ASINCRONISMOS EN JAVASCRIPT:
+-------------------------------------------------------
+Una manera de asegurar que se respete la secuencia en que hemos realizado múltiples tareas es utilizando callbacks, con lo que se ejecutará luego, en cada llamada. Lo importante es que el llamado al callback se haga a través de una función anónima. Sin embargo, al hacerlo de esta manera generamos una situación poco deseada llamada CallbackHell. El infierno de los callbacks.
+
+
+Usaremos un libreria externa llamada jQuery como ayuda.
+
+Usaremos la API de https://swapi.dev/
+
+Vamos hacer el request para obtener los datos de la API
+
+    const API_URL = 'https://swapi.dev/api/';
+    const PEOPLE_URL = 'people/:id';
+
+    const opts = { crossDomain: true};
+
+Vamos hacer una funcion que logee los nombres de multiples personajes y en paralelo
+
+    function obtenerPersonaje(id, callback){
+        const url = `${API_URL}${PEOPLE_URL.replace(':id', id)}`;
+
+        $.get(url, opts, function(data) {
+        console.log(`Hola, yo soy ${data.name}.`);
+
+        if(callback){
+            callback();
+        }
+    });
+
+    }
+
+Para controlar el orden lo haremos por medio de una funcion que pasaremos arriba como callback, los request se hacen en serie no en paralelo como antes.
+
+obtenerPersonaje(1,function(){
+    obtenerPersonaje(2,function(){
+        obtenerPersonaje(3,function(){
+            obtenerPersonaje(4,function(){
+                obtenerPersonaje(5, function(){
+                    obtenerPersonaje(6,function(){
+                        obtenerPersonaje(7);
+                    });
+                });
+            });
+        });
+    });
+})
+
+___________________________________
+32.MANEJO DE ERRORES CON CALLBACKS:
+-----------------------------------
+Para solucionar el problema de quedarnos sin conexión, u otro error similar, en medio de una sucesión de callbacks utilizamos el método fail().
+
+
+Usaremos un libreria externa llamada jQuery como ayuda.
+
+Usaremos la API de https://swapi.dev/
+
+Vamos hacer el request para obtener los datos de la API
+
+    const API_URL = 'https://swapi.dev/api/';
+    const PEOPLE_URL = 'people/:id';
+
+    const opts = { crossDomain: true};
+
+Vamos hacer una funcion que logee los nombres de multiples personajes y en paralelo
+
+    function obtenerPersonaje(id, callback){
+        const url = `${API_URL}${PEOPLE_URL.replace(':id', id)}`;
+        // Ahora podemos encadenar con el metodo fail()
+        $
+        .get(url, opts, callback)
+        // Asi podemos capturar el error por si hay perdida de conexion o por si uno de los personajes no existe.
+        .fail(function(){
+            console.log(`Sucedio un error no se pudo obtener el personaje ${id}`)
+        })
+
+    }
+
+Para controlar el orden lo haremos por medio de una funcion que pasaremos arriba como callback, los request se hacen en serie no en paralelo como antes.
+
+Hacemos un refactorings de la funcion.
+
+    obtenerPersonaje(1,function(data){
+        console.log(`Hola, yo soy ${data.name}.`);
+        obtenerPersonaje(2,function(data){
+            console.log(`Hola, yo soy ${data.name}.`);
+            obtenerPersonaje(3,function(data){
+                console.log(`Hola, yo soy ${data.name}.`);
+                obtenerPersonaje(4,function(data){
+                    console.log(`Hola, yo soy ${data.name}.`);
+                    obtenerPersonaje(5, function(data){
+                        console.log(`Hola, yo soy ${data.name}.`);
+                        obtenerPersonaje(6,function(data){
+                            console.log(`Hola, yo soy ${data.name}.`);
+                            obtenerPersonaje(7777, function(data){
+                                console.log(`Hola, yo soy ${data.name}.`);
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    })
+
+____________
+33.PROMESAS:
+------------
+Las promesas llegan para resolver el llamado de los callbacks, que estan bien pero cuando llegamos al callbacks hell el codigo se hace bastante confuso y dificil de manejar.
+
+En esta clase veremos las promesas, que son valores que aun no conocemos. Las promesas tienen tres estados:
+
+- pending
+- fullfilled
+- rejected
+
+Las promesas se invocan de la siguiente forma:
+
+    new Promise((resolve, reject){
+        // llamado asincrono
+        if(todoOk){
+            // Se resuelve la promesa
+            resolve()
+        } else {
+            // Paso algo
+            reject()
+        }
+    })
+
+No olvides ver el material adjunto de esta clase. PDF.
+
+
+Vamos hacer el request para obtener los datos de la API
+
+    const API_URL = 'https://swapi.dev/api/';
+    const PEOPLE_URL = 'people/:id';
+
+    const opts = { crossDomain: true};
+
+    function obtenerPersonaje(id){
+        return new Promise(function(resolve, reject){
+            const url = `${API_URL}${PEOPLE_URL.replace(':id', id)}`;
+            $
+            .get(url, opts, function(data){
+                resolve(data);
+            })
+            .fail(function(){
+                reject(id);
+            })
+        })
+
+    }
+
+    obtenerPersonaje(1)
+        .then(function(data){
+            console.log(`Hola, yo soy ${data.name}.`);
+        })
+        .catch(function(id){
+            console.log(`Ha sucedido un error en obtener el personaje ${id}`);
+        })
+
+_________________________________
+34.PROMESAS ENCADENADAS EN SERIE:
+---------------------------------
+A diferencia de los callbacks en el CallbackHell, que terminan estando anidados unos dentro de otros, cuando se usan Promesas la ejecución de las llamadas no se hacen de manera anidada sino de manera encadenada, al mismo nivel una debajo de la otra, lo que hace que el código sea mucho más legible y mantenible.
+
+
+Vamos hacer el request para obtener los datos de la API
+
+    const API_URL = 'https://swapi.dev/api/';
+    const PEOPLE_URL = 'people/:id';
+
+    const opts = { crossDomain: true};
+
+    function obtenerPersonaje(id){
+        return new Promise(function(resolve, reject){
+            const url = `${API_URL}${PEOPLE_URL.replace(':id', id)}`;
+            $
+            .get(url, opts, function(data){
+                resolve(data);
+            })
+            .fail(function(){
+                reject(id);
+            })
+        })
+    }
+
+Para devolver un error en el .catch()
+
+    function onError(id){
+        console.log(`Ha sucedido un error en obtener el personaje --> ${id}`);
+    }
+
+Encadenamos las promesas. Mucho mas claro. En serie. No en paralelo.
+
+    obtenerPersonaje(1)
+        .then( (data)=> {
+            console.log(`Hola, yo soy ${data.name}.`);
+            return obtenerPersonaje(2)
+        })
+        .then( (data)=> {
+            console.log(`Hola, yo soy ${data.name}.`);
+            return obtenerPersonaje(3)
+        })
+        .then( (data)=> {
+            console.log(`Hola, yo soy ${data.name}.`);
+            return obtenerPersonaje(4)
+        })
+        .then( (data)=> {
+            console.log(`Hola, yo soy ${data.name}.`);
+            return obtenerPersonaje(5)
+        })
+        .then( (data)=> {
+            console.log(`Hola, yo soy ${data.name}.`);
+            return obtenerPersonaje(6)
+        })
+        .then( (data)=> {
+            console.log(`Hola, yo soy ${data.name}.`);
+            return obtenerPersonaje(7)
+        })
+        .then( (data)=> {
+            console.log(`Hola, yo soy ${data.name}.`);
+            return obtenerPersonaje(777)
+        })
+
+        .catch(onError)
+
+____________________________________
+35.PROMESAS ENCADENADAS EN PARALELO:
+------------------------------------
+Para hacer el llamado a múltiples promesas, nos apoyamos en un array de ids con el que luego construimos otro arreglo de Promesas, que pasaremos como parámetro a Promise.all( arregloDePromesas ), con las promesas podemos encadenar llamadas en paralelo, algo que no es posible usando callbacks.
+
+
+Vamos hacer el request para obtener los datos de la API
+
+    const API_URL = 'https://swapi.dev/api/';
+    const PEOPLE_URL = 'people/:id';
+
+    const opts = { crossDomain: true};
+
+    function obtenerPersonaje(id){
+        return new Promise(function(resolve, reject){
+            const url = `${API_URL}${PEOPLE_URL.replace(':id', id)}`;
+            $
+            .get(url, opts, function(data){
+                resolve(data);
+            })
+            .fail(function(){
+                reject(id);
+            })
+        })
+    }
+
+Para devolver un error en el .catch()
+
+    function onError(id){
+        console.log(`Ha sucedido un error en obtener el personaje --> ${id}`);
+    }
+
+Vamos a guardarnos en un arrays los personajes que queremos
+
+    let ids = [1,2,3,4,5,6,7,8];
+
+    let promesas = ids.map(id=>obtenerPersonaje(id));
+
+Con promise.all(), podemos obtener un arrays de promesas.
+
+    Promise
+        .all(promesas)
+        .then(function(data){console.log(data)})
+        .catch(onError);
+
+_______________
+36.ASYNC-AWAIT:
+---------------
+Async-await es la manera más simple y clara de realizar tareas asíncronas. Await detiene la ejecución del programa hasta que todas las promesas sean resueltas. Para poder utilizar esta forma, hay que colocar async antes de la definición de la función, y encerrar el llamado a Promises.all() dentro de un bloque try … catch.
+
+
+Vamos hacer el request para obtener los datos de la API
+
+    const API_URL = 'https://swapi.dev/api/';
+    const PEOPLE_URL = 'people/:id';
+
+    const opts = { crossDomain: true};
+
+    function obtenerPersonaje(id){
+        return new Promise(function(resolve, reject){
+            const url = `${API_URL}${PEOPLE_URL.replace(':id', id)}`;
+            $
+            .get(url, opts, function(data){
+                resolve(data);
+            })
+            .fail(function(){
+                reject(id);
+            })
+        })
+    }
+
+Para devolver un error en el .catch()
+
+    function onError(id){
+        console.log(`Ha sucedido un error en obtener el personaje --> ${id}`);
+    }
+
+    async function obtenerPersonajes(){
+        let ids = [1,2,3,4,5,6,7,8];
+        let promesas = ids.map(id=>obtenerPersonaje(id))
+        try {
+            let data = await Promise.all(promesas)
+            console.log(data)
+            console.table(data)
+        } catch (id) {
+            onError(id)
+        }
+    }
+    obtenerPersonajes();
+
+___________________________________
+38.DIFERENCIAS ENTRE VAR-LET-CONST:
+-----------------------------------
+““var”” es la manera más antigua de declarar variables. No es muy estricta en cuanto al alcance, ya que al declarar variables de esta forma, dichas variables podrán ser accedidas, e incluso modificadas, tanto dentro como fuera de los bloques internos en una función.
+
+Con ““let”” por otra parte, el alcance se reduce al bloque (las llaves) en el cual la variable fue declarada. Fuera de este bloque la variable no existe. Una vez declarada la variable con let, no se puede volver a declarar con en ninguna otra parte de la función.
+
+““const”” al igual que ““let”” se define en el contexto o alcance de un bloque, a diferencia de let y var, las variables definidas como constantes (const), ya no podrán ser modificadas ni declaradas nuevamente, en ninguna otra parte de la función o el contexto en el que ya existen.
+
+La recomendación es reducir siempre al mínimo el alcance de nuestras variables, por lo que se debe usar let en lugar de var mientras sea posible.
+
+______________________
+39.VARIABLE TIPO DATE:
+----------------------
+Con variables de tipo Date, se pueden realizar operaciones de suma y resta similares a las que se realizan con números. El resultado que se obtiene está en milisegundos, por lo que luego hay que hacer algunas operaciones adicionales para llevarlos a días, meses o años según queramos. También aplica para Horas, Minutos, Segundos y Milisegundos.
+
+Manejo de fechas dentro de JS
+
+Calculo de los dias desde mi nacimiento
+
+    function diasEntrefechas(fecha1, fecha2){
+        const unDia = 1000 * 60 * 60 * 24
+        const diferencia = Math.abs(fecha1 -fecha2)
+        return Math.floor(diferencia / unDia)
+    }
+
+    const hoy = new Date()
+    const nacimiento = new Date(1975,7,14)
+
+    console.log(hoy)
+    console.log(nacimiento)
+    let diasDesdeQueNaci = diasEntrefechas(hoy,nacimiento)
+    console.log(diasDesdeQueNaci)
+
+    let edad = Math.floor(diasDesdeQueNaci / 365)
+    console.log(edad)
+
+________________________
+40.FUNCIONES-RECURSIVAS:
+------------------------
+La recursividad es un concepto muy importante en cualquier lenguaje de programación. Una función recursiva es básicamente aquella que se llama (o se ejecuta) a sí misma de forma controlada, hasta que sucede una condición base.
+
+    13/ 4
+
+    13-4 = 9   1
+    9-4  = 5   1
+    5-4  = 1   1
+    1-4  =-3   0
+
+
+
+    function divisionEntera(dividendo, divisor){
+        if(dividendo < divisor){
+            return 0
+        }
+        return 1 + divisionEntera(dividendo - divisor, divisor)
+    }
+
+    let result = divisionEntera(13,4);
+    console.log(result)
+
+____________________________
+42.ENTENDIENDO LOS CLOSURES:
+----------------------------
+Es un concepto muy importante en JS.
+Un closure, básicamente, es una función que recuerda el estado de las variables al momento de ser invocada, y conserva este estado a través de reiteradas ejecuciones. Un aspecto fundamental de los closures es que son funciones que retornan otras funciones.
+
+    function crearSaludo(finalDeFrase){
+        return function(nombre){
+            console.log(`Hola ${nombre} ${finalDeFrase}.`)
+
+        }
+    }
+
+    const saludoArgentino = crearSaludo('che')
+    const saludoMexicano = crearSaludo('guey')
+    const saludoColombiano = crearSaludo('amigo')
+
+    saludoArgentino('Sacha') // hola sacha che
+    saludoMexicano('Sacha') // hola sacha guet
+    saludoColombiano('Sacha') // hola sacha amigo
+
+__________________________________
+43.ESTRUCTURA DE DATOS INMUTABLES:
+----------------------------------
+Las estructuras de datos inmutables forman parte de los principios de la Programación Funcional y nos permiten evitar tener efectos colaterales en los datos. En otras palabras, que hayan modificaciones en las variables sin nuestro consentimiento, produciendo comportamientos inesperados en el programa.
+
+    const sacha = {
+        nombre: 'Sacha',
+        apellido: 'Lifszic',
+        edad: 28
+    }
+
+Como recordamos la funcion altera y modifica el objeto inicial generando un efecto de lado.
+
+    const cumpleanos = (persona) => {
+        return persona.edad++
+    }
+    cumpleanos(sacha);
+
+De esta manera estamos creando un nuevo objeto y no modificamos el original
+
+    const cumpleanosInmutable = (persona) => {
+        return {
+            ...persona,
+            edad: persona.edad +1
+        }
+    }
+
+    console.log(sacha)
+    console.log(cumpleanosInmutable(sacha))
+    console.log(sacha)
+
+_______________________________________________
+44.CAMBIANDO EL CONTEXTO AL LLAMAR UNA FUNCION:
+-----------------------------------------------
+El contexto (o alcance) de una función es por lo general, window. Así que en ciertos casos, cuando intentamos referirnos a this en alguna parte del código, es posible que tengamos un comportamiento inesperado, porque el contexto quizás no sea el que esperamos.
+
+Existen al menos tres maneras de cambiar el contexto de una función.
+
+- Usando el método .bind, enviamos la referencia a la función sin ejecutarla, pasando el contexto como parámetro.
+- Usando el método .call, ejecutamos inmediatamente la función con el contexto indicado
+- Usando el método .apply, es similar a .call pero los parámetros adicionales se pasan como un arreglo de valores
+
+
+    const alfred = {
+        nombre: 'Alfred',
+        apellido: 'Sánchez',
+        edad: 45
+    }
+    const jose = {
+        nombre: 'Jose',
+        apellido: 'Morales',
+        edad: 33
+    }
+
+    function saludar(saludo = 'Hola') {
+        console.log(`${saludo}, mi nombre es ${this.nombre}`) // Hola, mi nombre es undefined
+    }
+    saludar(alfred)
+
+Con el metodo bind() le pegamos en contexto a windows
+
+    const saludarAAlfred = saludar.bind(alfred)
+    saludarAAlfred()
+    const saludarAJose = saludar.bind(jose)
+    saludarAJose()
+
+
+    setTimeout(saludar.bind(alfred, 'hola men'),2000)
+
+    setTimeout(saludar.bind(jose),3000)
+
+    // call y apply
+
+    saludar.call(alfred, 'Q tal men')
+
+    saludar.apply(alfred,['Eyy men'])

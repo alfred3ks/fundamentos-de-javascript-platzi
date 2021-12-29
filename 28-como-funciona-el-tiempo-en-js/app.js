@@ -23,7 +23,7 @@ for(let i = 0; i < 10000000000; i++){
 
 }
 
-// Como podemos ver JS sigue ejecutandose pro hasta que no se termine de jecutar el ciclo for no va a ejecutar el setTimeOut, el ciclo for bloquea el event loop y hasta que este no termine no se ejecutara luego el setTimeout.
+// Como podemos ver JS sigue ejecutandose pEro hasta que no se termine de ejecutar el ciclo for no va a ejecutar el setTimeOut, el ciclo for bloquea el event loop y hasta que este no termine no se ejecutara luego el setTimeout.
 
 
 
