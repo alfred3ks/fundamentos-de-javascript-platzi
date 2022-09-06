@@ -12,8 +12,8 @@ Number
 String
 */
 
-var x = 4;
-var y = '4';
+let x = 4;
+let y = '4';
 
 // Primera forma de comparar cosas en JS, para eso usaremos el ==, doble igual.
 
@@ -27,11 +27,11 @@ console.log(x === y); // false
 
 //Ok ahora veamos como se comporta JS al comparar objetos.
 
-var sacha = {
+let sacha = {
     nombre: 'Sacha'
 }
 
-var otraPersona = {
+let otraPersona = {
     nombre: ' Sacha'
 }
 
@@ -41,13 +41,13 @@ console.log(sacha === otraPersona); //false
 
 // Muy diferente a lo de arriba que compara valores primitivos. Aqui la comparacion es de objetos, con (==) o (===) lo que hace JS es preguntar por la referencia de la variable que estamos utilizando. Si nos interesa que nos diera true la unica forma de hacerlo es como vemos a continuacion: La variable segundaPersona apunta a la misma referencia del primer objeto, osea el mismo espacio en memoria del ordenador
 
-var segundaPersona = sacha;
+let segundaPersona = sacha;
 console.log(sacha == segundaPersona); //true
 console.log(sacha === segundaPersona); //true
 
 // Ahora veamo con la creacion de otro objeto
 
-var terceraPersona = {
+let terceraPersona = {
     ...sacha
 }
 
@@ -58,16 +58,14 @@ console.log(sacha === terceraPersona); //false
 
 // Ahora veamos otro ejemplo, tenemos un objeto inicial y un segundo objeto que apunta al primero si modificamos al segundo objeto tambien modificamos al primero ya que ambis apuntan a la misma referencia:
 
-var obj1 = {
+let obj1 = {
     nombre: 'Sacha'
 }
 console.log(sacha); // {nombre: "Sacha"}
 
-var obj2 = sacha;
+let obj2 = sacha;
 console.log(sacha); // {nombre: "Sacha"}
 
 sacha.nombre = 'Pepe';
 
 console.log(sacha); // {nombre: "Pepe"}
-
-

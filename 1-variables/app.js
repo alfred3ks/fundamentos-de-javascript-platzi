@@ -1,4 +1,6 @@
-/* En este curso utilizaremos la consola de Google Chrome y el editor de texto Atom. También, crearemos una carpeta llamada fundamentos_js.
+/*
+
+En este curso utilizaremos la consola de Google Chrome y el editor de texto Atom. También, crearemos una carpeta llamada fundamentos_js.
 
 Para crear un archivo independiente del html utiliza la etiqueta
 
@@ -8,13 +10,13 @@ Para crear un archivo independiente del html utiliza la etiqueta
 console.log('Hola mundo JS!!!');
 
 // Variables.
-var nombre; // Declaracion de una variable
+let nombre; // Declaracion de una variable
 console.log(nombre); // undefined
 
 nombre = 'Alfredo'; // Asignacion de la variable
 console.log(nombre);
 
-var apellido = 'Sánchez';
+let apellido = 'Sánchez';
 
 // NOTA: Usaremos comillas simples para los string (''), tambien el ; al final de sentencia puede ser opcional, yo en mi caso lo voy a poner.
 
@@ -28,7 +30,7 @@ console.log(`Hola, ${nombre} ${apellido}.`)
 
 //Ejemplo
 
-var edad = 45;
+let edad = 45;
 edad = '45 años'
 console.log(`Tengo ${edad} años`)
 

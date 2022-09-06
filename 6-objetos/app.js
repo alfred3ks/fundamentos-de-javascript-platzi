@@ -10,25 +10,25 @@ Escribir el nombre de un objeto separado por un punto del nombre de un atributo,
 Las últimas versiones de JavaScript nos permiten desglosar el objeto para acceder únicamente al atributo que nos interesa. Esto se consigue encerrando el nombre del atributo entre llaves { }.
 */
 
-var nombreAlfred = 'Alfred';
-var nombreDario = 'Dario';
+let nombreAlfred = 'Alfred';
+let nombreDario = 'Dario';
 
 // Lo mejor es crear un objeto, donde tenemos una clave con un valor.
 
-// Onjetos de personas
-var alfred = {
+// Objetos de personas
+let alfred = {
     nombre: 'Alfred',
     apellido: 'Sánchez',
     edad: 45
 }
 
-var dario = {
+let dario = {
     nombre: 'Dario',
     apellido: 'Susnisky',
     edad: 27
 }
 
-function imprimirNombreMay(persona){
+function imprimirNombreMay(persona) {
     var nombre = persona.nombre.toUpperCase();
     console.log(nombre);
 }
@@ -40,7 +40,7 @@ imprimirNombreMay(dario);
 
 // Ahora si solo necesitamos pasar de nuestro objeto el nombre lo podemos hacer asi: Se llama desestructurar el objeto.
 
-function imprimirSoloNombre({ nombre }){
+function imprimirSoloNombre({ nombre }) {
     // Por parametro recibe el objeto que queramos
     var nombre = nombre.toUpperCase();
     console.log(`Desestructuramos el objeto: ${nombre}.`);
@@ -49,4 +49,4 @@ function imprimirSoloNombre({ nombre }){
 imprimirSoloNombre(alfred);
 
 // Tambien podemos definir el objeto aqui:
-imprimirSoloNombre({ nombre:'Pepito' })
+imprimirSoloNombre({ nombre: 'Pepito' })

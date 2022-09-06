@@ -6,10 +6,10 @@ Para que la ejecución de una función no modifique una variable global usamos p
 Es posible utilizar el mismo nombre para una variable global y para el parámetro de una función con un alcance local.
 */
 
-var nombre = 'Alfred';
-var apellido = 'Sanchez';
+let nombre = 'Alfred';
+let apellido = 'Sanchez';
 
-function imprimirNombreMay(){
+function imprimirNombreMay() {
     nombre = nombre.toUpperCase();
     console.log(nombre);
 }
@@ -28,7 +28,7 @@ console.log(window.nombre);
 
 // Veamos como podemos hacer para hacer nuestro codigo mas profesional y no modificar nuestra variable global.
 
-function imprimirNombreMayProf(n){
+function imprimirNombreMayProf(n) {
     n = n.toUpperCase();
     console.log(n);
 }

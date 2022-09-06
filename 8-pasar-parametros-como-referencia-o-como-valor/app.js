@@ -6,21 +6,21 @@ Cuando los objetos se pasan como una referencia, estos se modifican fuera de la 
 
 // Creamos nuestros objetos.
 
-var alfred = {
+let alfred = {
     nombre: '',
     apellido: 'Sánchez',
     edad: 45
 }
 
-var chris = {
+let chris = {
     nombre: 'Christian',
     apellido: 'Sánchez',
     edad: 10
 }
 
-function imprimeNombreEnMay(persona){
-    // var nombre = persona.nombre --> Lo mismo que abajo
-    var { nombre } = persona;
+function imprimeNombreEnMay(persona) {
+    // let nombre = persona.nombre --> Lo mismo que abajo
+    let { nombre } = persona;
     console.log(nombre.toUpperCase());
 }
 
@@ -29,8 +29,8 @@ imprimeNombreEnMay(chris);
 
 // Veamos el tema de pasar parametros
 
-function cumpleanos(persona){
-    var persona = persona.edad +=1;
+function cumpleanos(persona) {
+    let persona = persona.edad += 1;
     console.log(persona);
 
 }
@@ -55,19 +55,19 @@ console.log(alfred);
 // Ahora como ¿podemos evitar esto? bueno una es dejarlo como esta sabiendo lo que sucede que nuestro objeto inicial seria modificado porque es algo que realmente queremos, o tambien podemos devolver un nuevo objeto y este nuevo objeto debe tener todo lo mismo del objeto original excepto la edad que se debe incrementar, asi no modificamos el objeto original
 
 
-var susan = {
+let susan = {
     nombre: 'Susana',
     apellido: 'Serrano',
     edad: 45
 }
 
-var leonard = {
+let leonard = {
     nombre: 'Leonardo',
     apellido: 'Turtle',
     edad: 15
 }
 
-function cumpleanoGood(persona){
+function cumpleanoGood(persona) {
     // Desglosamos a la persona dentro de este nuevo objeto
     return {
         ...persona,
@@ -80,7 +80,7 @@ function cumpleanoGood(persona){
 console.log(susan);
 // Objeto al sumar en 1 la edad
 
-var susanTwoObj= cumpleanoGood(susan);
+let susanTwoObj = cumpleanoGood(susan);
 console.log(susanTwoObj);
 
 // Vemos que no se altera el objeto original
@@ -88,14 +88,14 @@ console.log(susan);
 
 // Ahora vemos el ejemplo con tortle
 
-function cumpleanos(persona){
+function cumpleanos(persona) {
     return {
         ...persona,
         edad: persona.edad + 1
     }
 }
 
-var newLeonard = cumpleanos(leonard);
+let newLeonard = cumpleanos(leonard);
 
 console.log(leonard);
 console.log(newLeonard);

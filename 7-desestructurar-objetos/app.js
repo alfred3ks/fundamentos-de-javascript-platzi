@@ -7,21 +7,21 @@ Reto: resolver la función que está comentada al final del ejercicio.
 
 // Creamos nuestros objetos.
 
-var alfred = {
+let alfred = {
     nombre: 'Alfred',
     apellido: 'Sánchez',
     edad: 45
 }
 
-var chris = {
+let chris = {
     nombre: 'Christian',
     apellido: 'Sánchez',
     edad: 10
 }
 
-function imprimeNombreEnMay(persona){
-    // var nombre = persona.nombre --> Lo mismo que abajo
-    var { nombre } = persona;
+function imprimeNombreEnMay(persona) {
+    // let nombre = persona.nombre --> Lo mismo que abajo
+    let { nombre } = persona;
     console.log(nombre.toUpperCase());
 }
 
@@ -30,9 +30,9 @@ imprimeNombreEnMay(chris);
 
 // Reto crear una funcion que imprima el nombre y la edad, y que diga: Hola, me llamo xxx y tengo xx años.
 
-function imprimirReto(persona){
+function imprimirReto(persona) {
     // Aqui desestructuramos el objeto
-    var { nombre, edad } = persona;
+    let { nombre, edad } = persona;
     console.log(`Hola, me llamo ${nombre} y tengo ${edad} años.`)
 }
 
