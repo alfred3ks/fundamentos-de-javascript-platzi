@@ -1,4 +1,4 @@
-# Fundamentos de JavaScript.
+# Fundamentos de JavaScript - Platzi.
 
 ## Indice.
 
